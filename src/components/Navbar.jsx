@@ -6,7 +6,7 @@ export default function Navbar({ scrolled, activeSection, navLinks }) {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
-      <a href="#home" className={styles.navLogo}>{"<Dev />"}</a>
+      <a href="#home" className={styles.navLogo}>{"</>"}</a>
 
       <ul className={`${styles.navLinks} ${menuOpen ? styles.navOpen : ""}`}>
         {navLinks.map((name) => (

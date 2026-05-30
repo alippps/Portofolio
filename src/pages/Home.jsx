@@ -1,4 +1,5 @@
 import styles from "../styles/Home.module.css";
+import { TbCode } from "react-icons/tb";
 
 export default function Home() {
   return (
@@ -32,7 +33,7 @@ export default function Home() {
           <div className={styles.orb + " " + styles.orb1} />
           <div className={styles.orb + " " + styles.orb2} />
           <div className={styles.avatarRing}>
-            <div className={styles.avatarInner}>🛠️</div>
+            <div className={styles.avatarInner}><TbCode color="232F72"/></div>
           </div>
         </div>
       </div>

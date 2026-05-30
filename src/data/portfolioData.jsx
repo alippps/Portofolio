@@ -1,17 +1,21 @@
+import { FaShoppingCart, FaCode } from "react-icons/fa"
+import { FaRegAddressCard } from "react-icons/fa6";
+import { MdAttachMoney } from "react-icons/md";
+
 export const projects = [
   {
-    icon: "🛒",
-    title: "E-Commerce Platform",
-    desc: "Full-stack marketplace dengan fitur cart, payment gateway, dan dashboard admin.",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    link: "#",
+    icon: <FaRegAddressCard  size={40} color="#6366f1" />,
+    title: "Landing Page",
+    desc: "Landing Page ini, berkolaborasi dengan Coding Studio pada saat event",
+    tags: ["TypeScript", "CSS", "JavaScript"],
+    link: "https://coding-studio-landing-page.vercel.app/",
   },
   {
-    icon: "💬",
-    title: "Real-time Chat App",
-    desc: "Aplikasi chat dengan WebSocket, room support, dan notifikasi push.",
-    tags: ["React", "Socket.io", "Express", "Redis"],
-    link: "#",
+    icon: <MdAttachMoney size={40} color="306D29"/>,
+    title: "Finance App",
+    desc: "Aplikasi ini di rancang untuk mentracker Pemasukan dan Pengeluaran dari manapun",
+    tags: ["JavaScript", "HTML", "CSS"],
+    link: "finannce-app-three.vercel.app",
   },
   {
     icon: "📊",
@@ -101,3 +105,5 @@ export const socials = [
   { icon: "🐦", label: "Twitter", href: "https://twitter.com/username" },
   { icon: "📧", label: "Email", href: "mailto:Alif@email.com" },
 ];
+
+export default projects
