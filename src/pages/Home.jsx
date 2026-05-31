@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { TbCode } from "react-icons/tb";
+import logo from "../assets/logo.png"
 
 export default function Home() {
   return (
@@ -33,7 +33,9 @@ export default function Home() {
           <div className={styles.orb + " " + styles.orb1} />
           <div className={styles.orb + " " + styles.orb2} />
           <div className={styles.avatarRing}>
-            <div className={styles.avatarInner}><TbCode color="232F72"/></div>
+            <div className={styles.avatarInner}>
+              <img src={logo} alt="Alif logo" className={styles.avatarLogo} />
+            </div>
           </div>
         </div>
       </div>

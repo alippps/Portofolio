@@ -7,7 +7,6 @@ export default function Project() {
       <div className="reveal">
         <p className="section-label">Portofolio</p>
         <h2 className="section-title">Proyek Terbaru</h2>
-        <h2 className="section-title">Coming Soon</h2>
       </div>
 
       <div className={styles.projectsGrid}>

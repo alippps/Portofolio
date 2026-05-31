@@ -7,7 +7,6 @@ export default function Sertifikat() {
       <div className="reveal">
         <p className="section-label">Pencapaian</p>
         <h2 className="section-title">Sertifikat &amp; Penghargaan</h2>
-        <h2 className="section-title">Coming Soon</h2>
       </div>
 
       <div className={s.certGrid}>

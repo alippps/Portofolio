@@ -1,6 +1,7 @@
-import { FaShoppingCart, FaCode } from "react-icons/fa"
-import { FaRegAddressCard } from "react-icons/fa6";
+import { FaShoppingCart, FaCode, FaLinkedin,FaInstagram   } from "react-icons/fa"
+import { FaRegAddressCard,FaGithub } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
+import { GiCoffeeCup } from "react-icons/gi";
 
 export const projects = [
   {
@@ -18,40 +19,40 @@ export const projects = [
     link: "finannce-app-three.vercel.app",
   },
   {
-    icon: "📊",
-    title: "Analytics Dashboard",
+    icon: <GiCoffeeCup size={40} color="FBF6F6"/>,
+    title: "Coffe Shop",
     desc: "Dashboard interaktif visualisasi data dengan chart dan laporan otomatis.",
     tags: ["React", "D3.js", "Python", "FastAPI"],
-    link: "#",
+    link: "https://come-coffe.vercel.app/",
   },
-  {
-    icon: "🎨",
-    title: "Design System",
-    desc: "Komponen UI library yang reusable dengan dokumentasi Storybook.",
-    tags: ["React", "Storybook", "Tailwind", "TypeScript"],
-    link: "#",
-  },
-  {
-    icon: "🤖",
-    title: "AI Content Generator",
-    desc: "Aplikasi berbasis AI untuk membuat konten blog dan media sosial otomatis.",
-    tags: ["React", "OpenAI API", "Next.js"],
-    link: "#",
-  },
-  {
-    icon: "📱",
-    title: "Mobile Banking App",
-    desc: "Aplikasi mobile banking dengan fitur transfer, mutasi, dan notifikasi.",
-    tags: ["React Native", "Redux", "TypeScript"],
-    link: "#",
-  },
+  // {
+  //   icon: "🎨",
+  //   title: "Design System",
+  //   desc: "Komponen UI library yang reusable dengan dokumentasi Storybook.",
+  //   tags: ["React", "Storybook", "Tailwind", "TypeScript"],
+  //   link: "#",
+  // },
+  // {
+  //   icon: "🤖",
+  //   title: "AI Content Generator",
+  //   desc: "Aplikasi berbasis AI untuk membuat konten blog dan media sosial otomatis.",
+  //   tags: ["React", "OpenAI API", "Next.js"],
+  //   link: "#",
+  // },
+  // {
+  //   icon: "📱",
+  //   title: "Mobile Banking App",
+  //   desc: "Aplikasi mobile banking dengan fitur transfer, mutasi, dan notifikasi.",
+  //   tags: ["React Native", "Redux", "TypeScript"],
+  //   link: "#",
+  // },
 ];
 
 export const certificates = [
   {
     icon: "☁️",
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
+    title: "Lembaga Sertifikasi Profesi (LSP)",
+    issuer: "obtain a license from the National Professional Certification Agency",
     date: "Jun 2024",
   },
   {
@@ -94,16 +95,16 @@ export const skills = [
 
 export const stats = [
   { number: "2+", description: "Tahun Pengalaman" },
-  { number: "20+", description: "Proyek Selesai" },
+  { number: "15+", description: "Proyek Selesai" },
 ];
 
 export const navLinks = ["Home", "About", "Project", "Sertifikat", "Contact"];
 
 export const socials = [
-  { icon: "🐙", label: "GitHub", href: "https://github.com/username" },
-  { icon: "💼", label: "LinkedIn", href: "https://linkedin.com/in/username" },
-  { icon: "🐦", label: "Twitter", href: "https://twitter.com/username" },
-  { icon: "📧", label: "Email", href: "mailto:Alif@email.com" },
+  { icon: <FaGithub size={15} />, label: "GitHub", href: "https://github.com/alippps" },
+  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://linkedin.com/in/username" },
+  { icon: <FaInstagram size={15} />, label: "Instagram", href: "https://instagram.com/username" },
+  // { icon: "📧", label: "Email", href: "#" },
 ];
 
 export default projects
