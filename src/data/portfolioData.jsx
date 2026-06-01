@@ -1,4 +1,4 @@
-import { FaShoppingCart, FaCode, FaLinkedin,FaInstagram   } from "react-icons/fa"
+import { FaShoppingCart, FaCode, FaLinkedin,FaInstagram,FaRegNewspaper,FaAngular } from "react-icons/fa"
 import { FaRegAddressCard,FaGithub } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -50,15 +50,15 @@ export const projects = [
 
 export const certificates = [
   {
-    icon: "☁️",
+    icon: <FaRegNewspaper size={25} color="6984A9"/>,
     title: "Lembaga Sertifikasi Profesi (LSP)",
-    issuer: "obtain a license from the National Professional Certification Agency",
+    issuer: "Obtain a license from the National Professional Certification Agency",
     date: "Jun 2024",
   },
   {
-    icon: "⚛️",
-    title: "React Advanced Patterns",
-    issuer: "Frontend Masters",
+    icon: <FaAngular size={25} color="CE2626"/>,
+    title: "Angular Course",
+    issuer: "Completed the course",
     date: "Mar 2024",
   },
   {

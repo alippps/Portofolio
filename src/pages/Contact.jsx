@@ -33,7 +33,7 @@ export default function Contact() {
 
         <div className={s.contactForm}>
           <div className={s.formRow}>
-            <div className={s.formGroup}>
+            {/* <div className={s.formGroup}>
               <label htmlFor="name">Nama</label>
               <input
                 id="name"
@@ -42,8 +42,8 @@ export default function Contact() {
                 value={form.name}
                 onChange={handleChange}
               />
-            </div>
-            <div className={s.formGroup}>
+            </div> */}
+            {/* <div className={s.formGroup}>
               <label htmlFor="email">Email</label>
               <input
                 id="email"
@@ -53,10 +53,10 @@ export default function Contact() {
                 value={form.email}
                 onChange={handleChange}
               />
-            </div>
+            </div> */}
           </div>
 
-          <div className={s.formGroup}>
+          {/* <div className={s.formGroup}>
             <label htmlFor="subject">Subjek</label>
             <input
               id="subject"
@@ -65,9 +65,9 @@ export default function Contact() {
               value={form.subject}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
 
-          <div className={s.formGroup}>
+          {/* <div className={s.formGroup}>
             <label htmlFor="message">Pesan</label>
             <textarea
               id="message"
@@ -76,14 +76,14 @@ export default function Contact() {
               value={form.message}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <button className="btn btn-primary" onClick={handleSubmit}>
               {sent ? "✓ Pesan Terkirim!" : "Kirim Pesan →"}
             </button>
             {sent && <p className={s.sentMsg}>Terima kasih! Saya akan membalas segera.</p>}
-          </div>
+          </div> */}
         </div>
 
         <div className={s.contactSocials}>

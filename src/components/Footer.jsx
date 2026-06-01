@@ -4,9 +4,8 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <p>
-        ©{new Date().getFullYear()} <span>Alif</span> || Alffar Tech
+        ©{new Date().getFullYear()} <span>Alffar Tech</span>
       </p>
-      <p>{new Date().toLocaleString()} <span>Test Waktu lokal</span></p>
     </footer>
   );
 }
