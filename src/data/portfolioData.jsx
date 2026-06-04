@@ -59,7 +59,7 @@ export const certificates = [
     icon: <FaAngular size={25} color="CE2626"/>,
     title: "Angular Course",
     issuer: "Completed the course",
-    date: "Mar 2024",
+    date: "Mar 2025",
   },
   {
     icon: "🔐",
@@ -94,8 +94,8 @@ export const skills = [
 ];
 
 export const stats = [
-  { number: "2+", description: "Tahun Pengalaman" },
-  { number: "15+", description: "Proyek Selesai" },
+  { number: "2+", description: "Years of Experience" },
+  { number: "15+", description: "Project Completed" },
 ];
 
 export const navLinks = ["Home", "About", "Project", "Sertifikat", "Contact"];

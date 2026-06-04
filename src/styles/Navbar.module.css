@@ -20,6 +20,8 @@
 }
 
 .navLogo {
+  display: flex;
+  align-items: center;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.4rem;
@@ -28,6 +30,13 @@
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.02em;
   text-decoration: none;
+}
+
+.navLogoImage {
+  display: block;
+  width: auto;
+  height: 42px;
+  object-fit: contain;
 }
 
 .navLinks {

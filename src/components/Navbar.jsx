@@ -1,12 +1,15 @@
 import { useState } from "react";
 import styles from "../styles/Navbar.module.css";
+import logo from "../assets/logo.png"
 
 export default function Navbar({ scrolled, activeSection, navLinks }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
-      <a href="#home" className={styles.navLogo}>{"</>"}</a>
+      <a href="#home" className={styles.navLogo}>
+        <img src={logo} alt="AT logo" className={styles.navLogoImage} />
+      </a>
 
       <ul className={`${styles.navLinks} ${menuOpen ? styles.navOpen : ""}`}>
         {navLinks.map((name) => (

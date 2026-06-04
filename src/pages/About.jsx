@@ -7,18 +7,17 @@ export default function About() {
       <div className={`${styles.aboutGrid} reveal`}>
         {/* Left: Bio */}
         <div>
-          <p className="section-label">Tentang Saya</p>
-          <h2 className="section-title">Siapa Saya?</h2>
+          <p className="section-label">About Me</p>
+          <h2 className="section-title">Who Am i ?</h2>
 
           <div className={styles.aboutText}>
             <p>
-              Saya adalah seorang Web Developer dengan pengalaman 2+ tahun
-              membangun aplikasi web yang scalable dan performant. Saya percaya bahwa
-              kode yang baik adalah kode yang mudah dibaca, dipelihara, dan teruji.
+              I am a web developer with over 2 years of experience building scalable and performant web applications.
+               I believe that good code is easy to read, maintain, and test.
             </p>
             <p>
-              Selain coding, saya senang berbagi ilmu lewat tulisan dan open source.
-              Selalu up-to-date dengan teknologi terbaru dan best practices industri.
+              Besides coding, I enjoy sharing knowledge through writing and open source.
+                I always stay up-to-date with the latest technologies and industry best practices.
             </p>
           </div>
 

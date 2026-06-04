@@ -5,8 +5,8 @@ export default function Project() {
   return (
     <section id="project" className={styles.project}>
       <div className="reveal">
-        <p className="section-label">Portofolio</p>
-        <h2 className="section-title">Proyek Terbaru</h2>
+        <p className="section-label">Portfolio</p>
+        <h2 className="section-title">Our Projects</h2>
       </div>
 
       <div className={styles.projectsGrid}>

@@ -23,12 +23,11 @@ export default function Contact() {
   return (
     <section id="contact" className={s.contact}>
       <div className={`${s.contactInner} reveal`}>
-        <p className="section-label">Kontak</p>
-        <h2 className="section-title">Mari Bekerja Sama</h2>
-        <h4 className="section-point">In development</h4>
+        <p className="section-label">Contact</p>
+        <h2 className="section-title">Let's Work Together</h2>
         <p className={s.contactDesc}>
-          Punya proyek menarik? Ingin berdiskusi tentang peluang kerja sama?
-          Saya selalu terbuka untuk percakapan baru.
+          Have an interesting project? Want to discuss collaboration opportunities?
+            I'm always open to new conversations.
         </p>
 
         <div className={s.contactForm}>

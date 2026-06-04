@@ -18,8 +18,8 @@ export default function Home() {
           </h1>
 
           <p className={styles.homeSub}>
-            Saya membangun produk digital yang cepat, indah, dan berdampak.
-            Spesialis React &amp; Node.js dengan passion di UX dan performa web.
+           I build fast, beautiful, and impactful digital products.
+        A React &amp; Node.js specialist with a passion for UX and web performance.
           </p>
 
           <div className={styles.btnRow}>
