@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaCode, FaLinkedin,FaInstagram,FaRegNewspaper,FaAngular } from "react-icons/fa"
-import { FaRegAddressCard,FaGithub } from "react-icons/fa6";
+import { FaRegAddressCard,FaGithub,FaFilm} from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
 
@@ -7,31 +7,31 @@ export const projects = [
   {
     icon: <FaRegAddressCard  size={40} color="#6366f1" />,
     title: "Landing Page",
-    desc: "Landing Page ini, berkolaborasi dengan Coding Studio pada saat event",
+    desc: "This Landing Page, collaborated with Coding Studio during the event",
     tags: ["TypeScript", "CSS", "JavaScript"],
     link: "https://coding-studio-landing-page.vercel.app/",
   },
   {
     icon: <MdAttachMoney size={40} color="306D29"/>,
     title: "Finance App",
-    desc: "Aplikasi ini di rancang untuk mentracker Pemasukan dan Pengeluaran dari manapun",
+    desc: "This application is designed to track Income and Expenses from anywhere.",
     tags: ["JavaScript", "HTML", "CSS"],
     link: "finannce-app-three.vercel.app",
   },
   {
     icon: <GiCoffeeCup size={40} color="FBF6F6"/>,
     title: "Coffe Shop",
-    desc: "Dashboard interaktif visualisasi data dengan chart dan laporan otomatis.",
+    desc: "Interactive data visualization dashboard with charts and automated reports.",
     tags: ["React", "D3.js", "Python", "FastAPI"],
     link: "https://come-coffe.vercel.app/",
   },
-  // {
-  //   icon: "🎨",
-  //   title: "Design System",
-  //   desc: "Komponen UI library yang reusable dengan dokumentasi Storybook.",
-  //   tags: ["React", "Storybook", "Tailwind", "TypeScript"],
-  //   link: "#",
-  // },
+  {
+    icon: <FaFilm size={40} color="2F578A"/>,
+    title: "Al Movie",
+    desc: "Mini movie creat with OMDB, and just show info films",
+    tags: ["JavaScript", "CSS", "HTML"],
+    link: "https://mini-movie-beryl.vercel.app/",
+  },
   // {
   //   icon: "🤖",
   //   title: "AI Content Generator",
