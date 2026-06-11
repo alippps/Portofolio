@@ -1,24 +1,14 @@
-import { useState } from "react";
+import { FaEnvelope, FaFileDownload, FaWhatsapp } from "react-icons/fa";
 import s from "../styles/Sections.module.css";
-import { socials } from "../data/portfolioData";
+import { contact, socials } from "../data/portfolioData";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = () => {
-    if (!form.name || !form.email || !form.message)
-      alert("Mohon lengkapi Nama, Email, dan Pesan sebelum mengirim.");
-      return;
-    // TODO: Integrate with emailjs / backend API
-    setSent(true);
-    setForm({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setSent(false), 3000);
-  };
+  const contactLinks = [
+    { icon: <FaEnvelope />, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    { icon: <FaWhatsapp />, label: "WhatsApp", value: "Start a conversation", href: contact.whatsapp },
+    { icon: <FaFileDownload />, label: "CV", value: "Download resume", href: contact.cv, download: true },
+    ...socials.map(({ icon, label, href }) => ({ icon, label, value: "View profile", href })),
+  ];
 
   return (
     <section id="contact" className={s.contact}>
@@ -26,69 +16,25 @@ export default function Contact() {
         <p className="section-label">Contact</p>
         <h2 className="section-title">Let's Work Together</h2>
         <p className={s.contactDesc}>
-          Have an interesting project? Want to discuss collaboration opportunities?
-            I'm always open to new conversations.
+          Have a website, landing page, or dashboard idea? I am open to freelance
+          projects, collaborations, and frontend roles.
         </p>
 
-        <div className={s.contactForm}>
-          <div className={s.formRow}>
-            {/* <div className={s.formGroup}>
-              <label htmlFor="name">Nama</label>
-              <input
-                id="name"
-                name="name"
-                placeholder="Your Name"
-                value={form.name}
-                onChange={handleChange}
-              />
-            </div> */}
-            {/* <div className={s.formGroup}>
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="your@email.com"
-                value={form.email}
-                onChange={handleChange}
-              />
-            </div> */}
-          </div>
-
-          {/* <div className={s.formGroup}>
-            <label htmlFor="subject">Subjek</label>
-            <input
-              id="subject"
-              name="subject"
-              placeholder="Diskusi Proyek"
-              value={form.subject}
-              onChange={handleChange}
-            />
-          </div> */}
-
-          {/* <div className={s.formGroup}>
-            <label htmlFor="message">Pesan</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Halo, saya ingin mendiskusikan..."
-              value={form.message}
-              onChange={handleChange}
-            />
-          </div> */}
-
-          {/* <div>
-            <button className="btn btn-primary" onClick={handleSubmit}>
-              {sent ? "✓ Pesan Terkirim!" : "Kirim Pesan →"}
-            </button>
-            {sent && <p className={s.sentMsg}>Terima kasih! Saya akan membalas segera.</p>}
-          </div> */}
-        </div>
-
-        <div className={s.contactSocials}>
-          {socials.map(({ icon, label, href }) => (
-            <a key={label} href={href} className={s.socialBtn} target="_blank" rel="noreferrer">
-              {icon} {label}
+        <div className={s.contactList}>
+          {contactLinks.map(({ icon, label, value, href, download }) => (
+            <a
+              key={label}
+              href={href}
+              className={s.contactLink}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noreferrer" : undefined}
+              download={download}
+            >
+              <span className={s.contactIcon}>{icon}</span>
+              <span>
+                <strong>{label}</strong>
+                <small>{value}</small>
+              </span>
             </a>
           ))}
         </div>

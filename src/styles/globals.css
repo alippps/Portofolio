@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,10 +13,10 @@
   --accent: #6ee7b7;
   --accent2: #818cf8;
   --text: #f0f0f5;
-  --muted: #6b6b80;
+  --muted: #8f90a3;
   --border: rgba(255, 255, 255, 0.07);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 html {
@@ -38,7 +38,7 @@ section {
   justify-content: center;
 }
 
-/* ── Reveal on scroll ── */
+/* Reveal on scroll */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -50,7 +50,7 @@ section {
   transform: translateY(0);
 }
 
-/* ── Shared Typography ── */
+/* Shared typography */
 .section-label {
   font-size: 0.78rem;
   font-weight: 600;
@@ -62,22 +62,26 @@ section {
 
 .section-title {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(2rem, 3.5vw, 3rem);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: 1.5rem;
 }
 
-/* ── Buttons ── */
+/* Buttons */
 .btn {
-  padding: 0.75rem 1.8rem;
+  min-height: 44px;
+  padding: 0.75rem 1.4rem;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.2s;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn:hover {
@@ -106,20 +110,19 @@ section {
   color: var(--accent);
 }
 
-/* ── Keyframes ── */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeLeft {
   from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes spin {
@@ -128,15 +131,14 @@ section {
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-20px); }
+  50% { transform: translateY(-20px); }
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
+  50% { opacity: 0.3; }
 }
 
-/* ── Mobile ── */
 @media (max-width: 768px) {
   section {
     padding: 6rem 5% 4rem;

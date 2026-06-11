@@ -8,16 +8,17 @@ export default function About() {
         {/* Left: Bio */}
         <div>
           <p className="section-label">About Me</p>
-          <h2 className="section-title">Who Am i ?</h2>
+          <h2 className="section-title">Who Am I?</h2>
 
           <div className={styles.aboutText}>
             <p>
-              I am a web developer with over 2 years of experience building scalable and performant web applications.
-               I believe that good code is easy to read, maintain, and test.
+              I am a web developer with 2+ years of experience building responsive,
+              maintainable, and performance-minded web applications.
             </p>
             <p>
-              Besides coding, I enjoy sharing knowledge through writing and open source.
-                I always stay up-to-date with the latest technologies and industry best practices.
+              My focus is turning ideas into clear user interfaces, connecting them
+              with reliable APIs, and keeping the codebase easy to understand as the
+              product grows.
             </p>
           </div>
 

@@ -1,13 +1,13 @@
 import styles from "../styles/Home.module.css";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
+import { contact } from "../data/portfolioData";
 
 export default function Home() {
   return (
     <section id="home" className={styles.home}>
       <div className={styles.homeGrid}>
-        {/* Left: Text */}
         <div>
-          <div className={styles.homeTag}>Under Development</div>
+          <div className={styles.homeTag}>Available for web projects</div>
 
           <h1 className={styles.homeH1}>
             Hi, I'm <span className={styles.grad}>Alif</span>
@@ -18,17 +18,18 @@ export default function Home() {
           </h1>
 
           <p className={styles.homeSub}>
-           I build fast, beautiful, and impactful digital products.
-        A React &amp; Node.js specialist with a passion for UX and web performance.
+            I build responsive web apps, landing pages, and dashboards with React,
+            with a focus on clean UI and practical performance. Beyond the craft
+            itself, I work fluidly with AI as a collaborative tool - using it to
+            think faster, iterate smarter, and deliver better outcomes.
           </p>
 
           <div className={styles.btnRow}>
-            <a href="#project" className="btn btn-primary">Lihat Proyek</a>
-            <a href="#contact" className="btn btn-outline">Hubungi Saya</a>
+            <a href="#project" className="btn btn-primary">View Projects</a>
+            <a href={contact.cv} className="btn btn-outline" download>Download CV</a>
           </div>
         </div>
 
-        {/* Right: Avatar */}
         <div className={styles.homeVisual}>
           <div className={styles.orb + " " + styles.orb1} />
           <div className={styles.orb + " " + styles.orb2} />

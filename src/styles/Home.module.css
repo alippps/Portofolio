@@ -1,4 +1,4 @@
-/* ── HOME ── */
+/* Home */
 .home {
   position: relative;
   overflow: hidden;
@@ -31,17 +31,20 @@
 }
 
 .homeTag::before {
-  content: '●';
-  font-size: 0.5rem;
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
   animation: pulse 2s infinite;
 }
 
 .homeH1 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(2.8rem, 5vw, 4.5rem);
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   margin-bottom: 1.5rem;
   animation: fadeUp 0.8s ease 0.1s both;
 }
@@ -56,18 +59,18 @@
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.7;
-  max-width: 480px;
+  max-width: 520px;
   margin-bottom: 2.5rem;
   animation: fadeUp 0.8s ease 0.2s both;
 }
 
 .btnRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   animation: fadeUp 0.8s ease 0.3s both;
 }
 
-/* Avatar */
 .homeVisual {
   position: relative;
   display: flex;
@@ -94,7 +97,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 7rem;
 }
 
 .avatarLogo {
@@ -130,7 +132,11 @@
 }
 
 @media (max-width: 768px) {
-  .homeGrid { grid-template-columns: 1fr; }
-  .homeVisual { display: none; }
-  .btnRow { flex-wrap: wrap; }
+  .homeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeVisual {
+    display: none;
+  }
 }

@@ -1,79 +1,63 @@
-# 🚀 Portfolio — Alif | Web Developer
+# Portfolio - Alif | Web Developer
 
-Portofolio personal yang dibangun dengan **React + Vite**, menggunakan CSS Modules dan animasi CSS murni.
+Personal portfolio built with React + Vite, CSS Modules, and lightweight CSS animations.
 
----
+## Structure
 
-## 📁 Struktur File
-
-```
+```text
 portfolio/
 ├── index.html
 ├── vite.config.js
 ├── package.json
+├── public/
+│   └── alif-taufiq-cv.html
 └── src/
-    ├── main.jsx              # Entry point
-    ├── App.jsx               # Root component
+    ├── main.jsx
+    ├── App.jsx
     ├── components/
-    │   ├── Navbar.jsx        # Navigasi fixed dengan hamburger menu
-    │   └── Footer.jsx        # Footer sederhana
+    │   ├── Navbar.jsx
+    │   └── Footer.jsx
     ├── pages/
-    │   ├── Home.jsx          # Hero section
-    │   ├── About.jsx         # Tentang + skills + statistik
-    │   ├── Project.jsx       # Grid proyek
-    │   ├── Sertifikat.jsx    # Kartu sertifikat
-    │   └── Contact.jsx       # Form kontak + sosial media
+    │   ├── Home.jsx
+    │   ├── About.jsx
+    │   ├── Project.jsx
+    │   ├── Sertifikat.jsx
+    │   └── Contact.jsx
     ├── data/
-    │   └── portfolioData.js  # Semua data (proyek, sertifikat, dll)
+    │   └── portfolioData.jsx
     ├── hooks/
-    │   └── useScroll.js      # useScrollReveal + useActiveSection
+    │   └── useScroll.js
     └── styles/
-        ├── globals.css           # Variabel CSS, base styles, animasi
+        ├── globals.css
         ├── Navbar.module.css
         ├── Home.module.css
         ├── About.module.css
         ├── Project.module.css
-        ├── Sections.module.css   # Sertifikat + Contact
+        ├── Sections.module.css
         └── Footer.module.css
 ```
 
----
-
-## ⚡ Cara Menjalankan
+## Run Locally
 
 ```bash
-# 1. Masuk ke folder
-cd portfolio
-
-# 2. Install dependencies
 npm install
-
-# 3. Jalankan dev server
 npm run dev
 ```
 
-Buka browser di `http://localhost:5173`
+Open `http://localhost:5173`.
 
----
+## Customize
 
-## ✏️ Cara Kustomisasi
+Most portfolio content lives in `src/data/portfolioData.jsx`:
 
-Semua data portofolio ada di **`src/data/portfolioData.js`**:
+- `projects`: featured projects and case study details
+- `certificates`: certificates and achievements
+- `skills`: technology list
+- `stats`: about section metrics
+- `socials`: social links
+- `contact`: email, WhatsApp, and CV link
 
-- `projects` → Daftar proyek
-- `certificates` → Daftar sertifikat
-- `skills` → Daftar skill/teknologi
-- `stats` → Statistik (tahun, proyek, klien)
-- `socials` → Link sosial media
-
-Ganti nama **Alif** di:
-- `src/pages/Home.jsx` (heading hero)
-- `src/components/Footer.jsx`
-- `index.html` (title & meta description)
-
----
-
-## 🛠️ Build untuk Production
+## Production Build
 
 ```bash
 npm run build

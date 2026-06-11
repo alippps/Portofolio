@@ -1,86 +1,100 @@
-import { FaShoppingCart, FaCode, FaLinkedin,FaInstagram,FaRegNewspaper,FaAngular } from "react-icons/fa"
-import { FaRegAddressCard,FaGithub,FaFilm} from "react-icons/fa6";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper } from "react-icons/fa";
+import { FaFilm, FaRegAddressCard } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
 
 export const projects = [
   {
-    icon: <FaRegAddressCard  size={40} color="#6366f1" />,
+    icon: <FaRegAddressCard size={34} color="#818cf8" />,
     title: "Landing Page",
-    desc: "This Landing Page, collaborated with Coding Studio during the event",
+    subtitle: "Event landing page",
+    desc: "A responsive landing page built for a Coding Studio collaboration event.",
+    impact: "Focused on clear event messaging, mobile layout, and fast loading.",
     tags: ["TypeScript", "CSS", "JavaScript"],
-    link: "https://coding-studio-landing-page.vercel.app/",
+    liveLink: "https://coding-studio-landing-page.vercel.app/",
+    sourceLink: "https://github.com/alippps",
+    preview: "landing",
+    image:"/project/studio-coding.png",
+    features: ["Responsive hero section", "Event-focused call to action", "Clean section structure"],
+    challenge: "Keeping the layout polished across mobile and desktop while preserving simple content flow.",
   },
   {
-    icon: <MdAttachMoney size={40} color="306D29"/>,
+    icon: <MdAttachMoney size={34} color="#6ee7b7" />,
     title: "Finance App",
-    desc: "This application is designed to track Income and Expenses from anywhere.",
+    subtitle: "Income and expense tracker",
+    desc: "A finance tracker for recording income, expenses, and daily balance changes.",
+    impact: "Designed to make personal cash flow easier to review at a glance.",
     tags: ["JavaScript", "HTML", "CSS"],
-    link: "finannce-app-three.vercel.app",
+    liveLink: "https://finannce-app-three.vercel.app/",
+    sourceLink: "https://github.com/alippps",
+    image:"/project/finance-app.png",
+    preview: "finance",
+    features: ["Transaction input", "Income and expense summary", "Simple dashboard view"],
+    challenge: "Making the finance summary readable without overwhelming the main interaction.",
   },
   {
-    icon: <GiCoffeeCup size={40} color="FBF6F6"/>,
-    title: "Coffe Shop",
-    desc: "Interactive data visualization dashboard with charts and automated reports.",
-    tags: ["React", "D3.js", "Python", "FastAPI"],
-    link: "https://come-coffe.vercel.app/",
+    icon: <GiCoffeeCup size={34} color="#f8fafc" />,
+    title: "Coffee Shop",
+    subtitle: "Cafe website",
+    desc: "A modern coffee shop website with product highlights and a warm browsing flow.",
+    impact: "Built to present menu items and brand personality in a concise single-page experience.",
+    tags: ["React", "CSS", "JavaScript"],
+    liveLink: "https://come-coffe.vercel.app/",
+    sourceLink: "https://github.com/alippps",
+    image:"/project/come-coffe.png",
+    preview: "coffee",
+    features: ["Product showcase", "Responsive menu layout", "Strong visual hierarchy"],
+    challenge: "Balancing a cozy brand feel with a clean and performant frontend.",
   },
   {
-    icon: <FaFilm size={40} color="2F578A"/>,
+    icon: <FaFilm size={34} color="#93c5fd" />,
     title: "Al Movie",
-    desc: "Mini movie creat with OMDB, and just show info films",
+    subtitle: "Movie search app",
+    desc: "A mini movie app using OMDB data to search and display film information.",
+    impact: "Turns raw movie data into a lightweight browsing experience.",
     tags: ["JavaScript", "CSS", "HTML"],
-    link: "https://mini-movie-beryl.vercel.app/",
+    liveLink: "https://mini-movie-beryl.vercel.app/",
+    sourceLink: "https://github.com/alippps",
+    image:"/project/al-cinema.png",
+    preview: "movie",
+    features: ["Movie search", "Film detail display", "API-driven content"],
+    challenge: "Handling API data states while keeping the interface simple for quick lookup.",
   },
-  // {
-  //   icon: "🤖",
-  //   title: "AI Content Generator",
-  //   desc: "Aplikasi berbasis AI untuk membuat konten blog dan media sosial otomatis.",
-  //   tags: ["React", "OpenAI API", "Next.js"],
-  //   link: "#",
-  // },
-  // {
-  //   icon: "📱",
-  //   title: "Mobile Banking App",
-  //   desc: "Aplikasi mobile banking dengan fitur transfer, mutasi, dan notifikasi.",
-  //   tags: ["React Native", "Redux", "TypeScript"],
-  //   link: "#",
-  // },
 ];
 
 export const certificates = [
   {
-    icon: <FaRegNewspaper size={25} color="6984A9"/>,
+    icon: <FaRegNewspaper size={25} color="#93c5fd" />,
     title: "Lembaga Sertifikasi Profesi (LSP)",
-    issuer: "Obtain a license from the National Professional Certification Agency",
+    issuer: "Certified by the National Professional Certification Agency",
     date: "Jun 2024",
   },
   {
-    icon: <FaAngular size={25} color="CE2626"/>,
+    icon: <FaAngular size={25} color="#ef4444" />,
     title: "Angular Course",
-    issuer: "Completed the course",
+    issuer: "Course completion certificate",
     date: "Mar 2025",
   },
   {
-    icon: "🔐",
+    icon: "SEC",
     title: "Cybersecurity Fundamentals",
-    issuer: "CompTIA Security+",
+    issuer: "Security fundamentals program",
     date: "Jan 2024",
   },
   {
-    icon: "🐍",
+    icon: "PY",
     title: "Python for Data Science",
-    issuer: "Coursera – Google",
+    issuer: "Coursera - Google",
     date: "Nov 2023",
   },
   {
-    icon: "🎓",
+    icon: "FS",
     title: "Full Stack Web Development",
     issuer: "Dicoding Indonesia",
     date: "Aug 2023",
   },
   {
-    icon: "📦",
+    icon: "DK",
     title: "Docker & Kubernetes",
     issuer: "Linux Foundation",
     date: "May 2023",
@@ -88,23 +102,39 @@ export const certificates = [
 ];
 
 export const skills = [
-  "JavaScript", "TypeScript", "React", "Next.js", "Node.js",
-  "Express", "PostgreSQL", "TailwindCSS",
-  "Docker", "Git", "Figma", "Python", "REST API",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Express",
+  "PostgreSQL",
+  "TailwindCSS",
+  "Docker",
+  "Git",
+  "Figma",
+  "Python",
+  "REST API",
 ];
 
 export const stats = [
   { number: "2+", description: "Years of Experience" },
-  { number: "15+", description: "Project Completed" },
+  { number: "15+", description: "Projects Completed" },
+  { number: "4", description: "Featured Case Studies" },
 ];
 
 export const navLinks = ["Home", "About", "Project", "Sertifikat", "Contact"];
 
 export const socials = [
   { icon: <FaGithub size={15} />, label: "GitHub", href: "https://github.com/alippps" },
-  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://linkedin.com/in/username" },
-  { icon: <FaInstagram size={15} />, label: "Instagram", href: "https://instagram.com/username" },
-  // { icon: "📧", label: "Email", href: "#" },
+  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://linkedin.com/in/alif-Farhan" },
+  { icon: <FaInstagram size={15} />, label: "Instagram", href: "https://instagram.com/alippps" },
 ];
 
-export default projects
+export const contact = {
+  email: "alif@example.com",
+  whatsapp: "https://wa.me/6281234567890",
+  cv: "/alif-Farhan-cv.html",
+};
+
+export default projects;

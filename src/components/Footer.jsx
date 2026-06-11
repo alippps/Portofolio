@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <p>
-        ©{new Date().getFullYear()} <span>Alffar Tech</span>
+        &copy; {new Date().getFullYear()} <span>Alffar Tech</span>
       </p>
     </footer>
   );
