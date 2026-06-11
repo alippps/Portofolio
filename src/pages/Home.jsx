@@ -7,7 +7,7 @@ export default function Home() {
     <section id="home" className={styles.home}>
       <div className={styles.homeGrid}>
         <div>
-          <div className={styles.homeTag}>Available for web projects</div>
+          <div className={styles.homeTag}>Maintenance apps</div>
 
           <h1 className={styles.homeH1}>
             Hi, I'm <span className={styles.grad}>Alif</span>
