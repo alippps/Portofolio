@@ -5,8 +5,8 @@ export default function Sertifikat() {
   return (
     <section id="sertifikat" className={s.sertifikat}>
       <div className="reveal">
-        <p className="section-label">Pencapaian</p>
-        <h2 className="section-title">Sertifikat &amp; Penghargaan</h2>
+        <p className="section-label">Achievement</p>
+        <h2 className="section-title">Certificate &amp; Award</h2>
       </div>
 
       <div className={s.certGrid}>
