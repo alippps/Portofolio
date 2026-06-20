@@ -32,7 +32,7 @@ export default function Home() {
         </div>
 
         <div className={styles.homeVisual}>
-          <div className={styles.avatarFrame}>
+          <div className={styles.avatarWrap}>
             <img src={logo} alt="Alif Farhan" className={styles.avatarImg} />
           </div>
         </div>

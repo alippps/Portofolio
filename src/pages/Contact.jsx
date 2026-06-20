@@ -6,7 +6,7 @@ export default function Contact() {
   const contactLinks = [
     { icon: <FaEnvelope />, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
     { icon: <FaWhatsapp />, label: "WhatsApp", value: "Start a conversation", href: contact.whatsapp },
-    { icon: <FaFileDownload />, label: "CV", value: "Download resume", href: contact.cv, download: true },
+    { icon: <FaFileDownload />, label: "CV", value: "Download resume", href: contact.cv, download: "Alif-Farhan-CV.html" },
     ...socials.map(({ icon, label, href }) => ({ icon, label, value: "View profile", href })),
   ];
 

@@ -62,18 +62,18 @@ export const projects = [
   },
 
   {
-    icon: <FaFilm size={34} color="#93c5fd" />,
-    title: "Finance-appV2",
-    subtitle: "Finance-appV2",
-    desc: "A financial tracking application for recording daily income, expenses, and balance changes, this app has been developed into V2 with a more attractive UI and uses a login section.",
-    impact: "Turns raw movie data into a lightweight browsing experience.",
-    tags: ["Typescript", "CSS", "Javascript"],
-    liveLink: "https://mini-movie-beryl.vercel.app/",
+    icon: <MdAttachMoney size={34} color="#34d399" />,
+    title: "FinanceOS",
+    subtitle: "Personal finance dashboard",
+    desc: "A personal finance app for tracking daily income, expenses, budget, and account balance in one workspace — with a login system and improved UI over v1.",
+    impact: "Makes personal cash flow easier to manage with a cleaner interface and user authentication.",
+    tags: ["TypeScript", "CSS", "JavaScript"],
+    liveLink: "https://finance-app-v2-wine.vercel.app",
     sourceLink: "https://github.com/alippps/finance-appV2",
-    image:"/project/al-cinema.png",
-    preview: "movie",
-    features: ["Movie search", "Film detail display", "API-driven content"],
-    challenge: "Handling API data states while keeping the interface simple for quick lookup.",
+    image: "/project/finance-appv2.png",
+    preview: "financeos",
+    features: ["User login and authentication", "Income and expense tracking", "Budget and balance dashboard"],
+    challenge: "Redesigning the v1 layout into a more structured dashboard while adding auth without overcomplicating the flow.",
   },
 ];
 
@@ -89,30 +89,6 @@ export const certificates = [
     title: "Angular Course",
     issuer: "Course completion certificate",
     date: "Mar 2025",
-  },
-  {
-    icon: <FaShieldAlt size={25} color="#f87171" />,
-    title: "Cybersecurity Fundamentals",
-    issuer: "Security fundamentals program",
-    date: "Jan 2024",
-  },
-  {
-    icon: <FaPython size={25} color="#fbbf24" />,
-    title: "Python for Data Science",
-    issuer: "Coursera - Google",
-    date: "Nov 2023",
-  },
-  {
-    icon: <FaLaptopCode size={25} color="#6ee7b7" />,
-    title: "Full Stack Web Development",
-    issuer: "Dicoding Indonesia",
-    date: "Aug 2023",
-  },
-  {
-    icon: <FaDocker size={25} color="#60a5fa" />,
-    title: "Docker & Kubernetes",
-    issuer: "Linux Foundation",
-    date: "May 2023",
   },
 ];
 
@@ -149,7 +125,7 @@ export const socials = [
 export const contact = {
   email: "alif@example.com",
   whatsapp: "https://wa.me/6281234567890",
-  cv: "/alif-Farhan-cv.html",
+  cv: "/alif-farhan-cv.html",
 };
 
 export default projects;
