@@ -94,26 +94,24 @@ export default function Project() {
                 <span />
               </div>
               {selectedProject.image ? (
-                  <img
-                    src={selectedProject.image}
-                    alt={`${selectedProject.title} preview`}
-                    className={styles.modalImage}
-                  />
-                ) : (
-                  <div className={`${styles.projectPreview} ${styles.modalPreview} ${styles[selectedProject.preview]}`}>
-                  <div className={styles.previewBody}>
-                <div className={styles.previewPanel}>
-                  <strong>{selectedProject.title}</strong>
-                  <small>{selectedProject.subtitle}</small>
-                </div>
-                <div className={styles.previewBars}>
-                  <span />
-                  <span />
-                  <span />
-                </div>
-              </div>
+                <img
+                  src={selectedProject.image}
+                  alt={`${selectedProject.title} preview`}
+                  className={styles.modalImage}
+                />
+              ) : (
+                <div className={styles.previewBody}>
+                  <div className={styles.previewPanel}>
+                    <strong>{selectedProject.title}</strong>
+                    <small>{selectedProject.subtitle}</small>
                   </div>
-                )}
+                  <div className={styles.previewBars}>
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              )}
             </div>
 
             <p className="section-label">Case Study</p>

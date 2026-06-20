@@ -1,132 +1,161 @@
+/* ── Floating pill navbar ── */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 6%;
-  background: rgba(10, 10, 15, 0.75);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
-  transition: padding 0.3s;
+  background: rgba(14, 14, 21, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 100px;
+  padding: 0.42rem 0.5rem;
+  animation: pillIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-/* compound selector workaround for CSS Modules */
+@keyframes pillIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-20px) scale(0.95); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)      scale(1);    }
+}
+
 .navScrolled {
-  padding: 0.75rem 6%;
+  background: rgba(14, 14, 21, 0.88);
+  border-color: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.navLogo {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.4rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
-
-.navLogoImage {
-  display: block;
-  width: auto;
-  height: 42px;
-  object-fit: contain;
-}
-
+/* Desktop links */
 .navLinks {
   display: flex;
-  gap: 2.2rem;
+  align-items: center;
+  gap: 0.15rem;
   list-style: none;
 }
 
 .navLinks a {
-  font-size: 0.9rem;
+  position: relative;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--muted);
   text-decoration: none;
-  letter-spacing: 0.04em;
-  position: relative;
-  transition: color 0.25s;
-}
-
-.navLinks a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  padding: 0.42rem 0.95rem;
+  border-radius: 100px;
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .navLinks a:hover {
   color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.navLinks a:hover::after {
-  transform: scaleX(1);
-}
-
-/* active link */
+/* Active: filled pill inside the nav pill */
 .activeLink {
   color: var(--text) !important;
+  background: rgba(249, 115, 22, 0.12) !important;
 }
 
 .activeLink::after {
-  transform: scaleX(1) !important;
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
-/* Hamburger */
-.hamburger {
+/* Mobile hamburger — hidden on desktop */
+.menuBtn {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
   background: none;
   border: none;
-  padding: 4px;
+  padding: 6px 8px;
 }
 
-.hamburger span {
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: 0.3s;
+.menuBtn span {
   display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s, background 0.25s;
 }
 
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-  }
+.menuBtnOpen span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background: var(--text); }
+.menuBtnOpen span:nth-child(2) { opacity: 0; }
+.menuBtnOpen span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background: var(--text); }
 
-  .navOpen {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    inset: 0;
-    top: 60px;
-    background: rgba(10, 10, 15, 0.97);
-    padding: 3rem 5%;
-    gap: 2rem;
-    align-items: center;
-    justify-content: center;
-  }
+/* ── Mobile overlay ── */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(7, 7, 11, 0.96);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
 
-  .navOpen a {
-    font-size: 1.2rem;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
-  .hamburger {
-    display: flex;
-  }
+.mobileLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mobileLinks li {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: slideUp 0.35s ease forwards;
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobileLinks a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+
+.mobileLinks a:hover,
+.activeMobile {
+  color: var(--text) !important;
+}
+
+.activeMobile {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .navLinks { display: none; }
+  .menuBtn  { display: flex; }
 }

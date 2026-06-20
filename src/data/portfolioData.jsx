@@ -1,4 +1,4 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper } from "react-icons/fa";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode } from "react-icons/fa";
 import { FaFilm, FaRegAddressCard } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -60,6 +60,21 @@ export const projects = [
     features: ["Movie search", "Film detail display", "API-driven content"],
     challenge: "Handling API data states while keeping the interface simple for quick lookup.",
   },
+
+  {
+    icon: <FaFilm size={34} color="#93c5fd" />,
+    title: "Finance-appV2",
+    subtitle: "Finance-appV2",
+    desc: "A financial tracking application for recording daily income, expenses, and balance changes, this app has been developed into V2 with a more attractive UI and uses a login section.",
+    impact: "Turns raw movie data into a lightweight browsing experience.",
+    tags: ["Typescript", "CSS", "Javascript"],
+    liveLink: "https://mini-movie-beryl.vercel.app/",
+    sourceLink: "https://github.com/alippps/finance-appV2",
+    image:"/project/al-cinema.png",
+    preview: "movie",
+    features: ["Movie search", "Film detail display", "API-driven content"],
+    challenge: "Handling API data states while keeping the interface simple for quick lookup.",
+  },
 ];
 
 export const certificates = [
@@ -76,25 +91,25 @@ export const certificates = [
     date: "Mar 2025",
   },
   {
-    icon: "SEC",
+    icon: <FaShieldAlt size={25} color="#f87171" />,
     title: "Cybersecurity Fundamentals",
     issuer: "Security fundamentals program",
     date: "Jan 2024",
   },
   {
-    icon: "PY",
+    icon: <FaPython size={25} color="#fbbf24" />,
     title: "Python for Data Science",
     issuer: "Coursera - Google",
     date: "Nov 2023",
   },
   {
-    icon: "FS",
+    icon: <FaLaptopCode size={25} color="#6ee7b7" />,
     title: "Full Stack Web Development",
     issuer: "Dicoding Indonesia",
     date: "Aug 2023",
   },
   {
-    icon: "DK",
+    icon: <FaDocker size={25} color="#60a5fa" />,
     title: "Docker & Kubernetes",
     issuer: "Linux Foundation",
     date: "May 2023",
