@@ -1,7 +1,12 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode } from "react-icons/fa";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode, FaCode } from "react-icons/fa";
 import { FaFilm, FaRegAddressCard } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
+import { IoNewspaper } from "react-icons/io5";
+import {
+  SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
+  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython,
+} from "react-icons/si";
 
 export const projects = [
   {
@@ -90,22 +95,29 @@ export const certificates = [
     issuer: "Course completion certificate",
     date: "Mar 2025",
   },
+
+  {
+    icon: <IoNewspaper size={25} color="#efdecd" />,
+    title: "Colloquium",
+    issuer: "Career Expolaration 2026 x Coding Studio",
+    date: "Juni 2026",
+  },
 ];
 
 export const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Express",
-  "PostgreSQL",
-  "TailwindCSS",
-  "Docker",
-  "Git",
-  "Figma",
-  "Python",
-  "REST API",
+  { name: "JavaScript",  icon: <SiJavascript  size={22} color="#f7df1e" /> },
+  { name: "TypeScript",  icon: <SiTypescript  size={22} color="#3178c6" /> },
+  { name: "React",       icon: <SiReact       size={22} color="#61dafb" /> },
+  { name: "Next.js",     icon: <SiNextdotjs   size={22} color="#ffffff" /> },
+  { name: "Node.js",     icon: <SiNodedotjs   size={22} color="#43a047" /> },
+  { name: "Express",     icon: <SiExpress     size={22} color="#aaaaaa" /> },
+  { name: "PostgreSQL",  icon: <SiPostgresql  size={22} color="#4169e1" /> },
+  { name: "TailwindCSS", icon: <SiTailwindcss size={22} color="#06b6d4" /> },
+  { name: "Docker",      icon: <SiDocker      size={22} color="#2496ed" /> },
+  { name: "Git",         icon: <SiGit         size={22} color="#f05032" /> },
+  { name: "Figma",       icon: <SiFigma       size={22} color="#f24e1e" /> },
+  { name: "Python",      icon: <SiPython      size={22} color="#ffd43b" /> },
+  { name: "REST API",    icon: <FaCode        size={22} color="#22d3ee" /> },
 ];
 
 export const stats = [
@@ -114,7 +126,7 @@ export const stats = [
   { number: "4", description: "Featured Case Studies" },
 ];
 
-export const navLinks = ["Home", "About", "Project", "Sertifikat", "Contact"];
+export const navLinks = ["Home", "About", "Project", "Certificate", "Contact"];
 
 export const socials = [
   { icon: <FaGithub size={15} />, label: "GitHub", href: "https://github.com/alippps" },
@@ -123,8 +135,6 @@ export const socials = [
 ];
 
 export const contact = {
-  email: "alif@example.com",
-  whatsapp: "https://wa.me/6281234567890",
   cv: "/alif-farhan-cv.html",
 };
 

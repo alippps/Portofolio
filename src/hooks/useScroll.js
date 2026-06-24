@@ -38,6 +38,14 @@ export function useActiveSection(sectionIds = []) {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
 
+      // If scrolled to bottom, force-activate the last section
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 60;
+      if (atBottom && sectionIds.length > 0) {
+        setActiveSection(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
       const active = sectionIds.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;

@@ -1,5 +1,6 @@
 import styles from "../styles/About.module.css";
-import { skills, stats } from "../data/portfolioData";
+import { stats } from "../data/portfolioData";
+import SkillsMarquee from "../components/SkillsMarquee";
 
 export default function About() {
   return (
@@ -21,12 +22,6 @@ export default function About() {
               product grows.
             </p>
           </div>
-
-          <div className={styles.skillsWrap}>
-            {skills.map((skill) => (
-              <span key={skill} className={styles.skillPill}>{skill}</span>
-            ))}
-          </div>
         </div>
 
         {/* Right: Stats */}
@@ -40,6 +35,12 @@ export default function About() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Tech Stack Marquee */}
+      <div className={`${styles.techStack} reveal`}>
+        <p className="section-label">Tech Stack</p>
+        <SkillsMarquee />
       </div>
     </section>
   );

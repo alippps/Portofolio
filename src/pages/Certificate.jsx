@@ -1,9 +1,9 @@
 import s from "../styles/Sections.module.css";
 import { certificates } from "../data/portfolioData";
 
-export default function Sertifikat() {
+export default function Certificate() {
   return (
-    <section id="sertifikat" className={s.sertifikat}>
+    <section id="certificate" className={s.sertifikat}>
       <div className="reveal">
         <p className="section-label">Achievement</p>
         <h2 className="section-title">Certificate &amp; Award</h2>

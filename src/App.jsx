@@ -5,7 +5,7 @@ import Footer  from "./components/Footer";
 import Home    from "./pages/Home";
 import About   from "./pages/About";
 import Project from "./pages/Project";
-import Sertifikat from "./pages/Sertifikat";
+import Certificate from "./pages/Certificate";
 import Contact from "./pages/Contact";
 
 import { useScrollReveal, useActiveSection } from "./hooks/useScroll";
@@ -29,7 +29,7 @@ export default function App() {
         <Home />
         <About />
         <Project />
-        <Sertifikat />
+        <Certificate />
         <Contact />
       </main>
 

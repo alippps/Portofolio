@@ -101,8 +101,19 @@
   background-image: radial-gradient(ellipse 60% 50% at 50% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 70%);
 }
 
-.contactInner {
-  max-width: 680px;
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contactLeft {}
+
+.contactRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .contactDesc {
@@ -160,6 +171,184 @@
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(249, 115, 22, 0.3);
   transform: translateY(-2px);
+}
+
+/* Inbox */
+.inbox {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.inboxHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.inboxCount {
+  margin-left: auto;
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+}
+
+.inboxBody {
+  padding: 0.75rem;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+
+.inboxBody::-webkit-scrollbar { width: 4px; }
+.inboxBody::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+
+.inboxEmpty {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1.5rem 0;
+  opacity: 0.6;
+}
+
+.msgBubble {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  animation: bubbleIn 0.25s ease;
+}
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.msgMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.msgName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.msgTime {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+.msgText {
+  font-size: 0.83rem;
+  color: var(--text);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Form */
+.msgForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.msgInput {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  color: var(--text);
+  font-size: 0.83rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.msgInput::placeholder { color: var(--muted); opacity: 0.5; }
+.msgInput:focus { border-color: rgba(249, 115, 22, 0.4); }
+
+.msgTextareaWrap {
+  position: relative;
+}
+
+.msgTextarea {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 2.8rem 0.65rem 0.9rem;
+  color: var(--text);
+  font-size: 0.83rem;
+  font-family: var(--font-body);
+  resize: none;
+  outline: none;
+  line-height: 1.55;
+  transition: border-color 0.2s;
+  display: block;
+}
+
+.msgTextarea::placeholder { color: var(--muted); opacity: 0.5; }
+.msgTextarea:focus { border-color: rgba(249, 115, 22, 0.4); }
+
+.msgSendBtn {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: none;
+  background: var(--accent);
+  color: #07070b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.15s, opacity 0.2s;
+}
+
+.msgSendBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.msgSendBtn:not(:disabled):hover {
+  background: #fb923c;
+  transform: scale(1.08);
+}
+
+.msgSendBtn.sent {
+  background: #22c55e;
+}
+
+@media (max-width: 900px) {
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 @media (max-width: 640px) {
