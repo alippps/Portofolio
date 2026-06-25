@@ -1,4 +1,4 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode, FaCode } from "react-icons/fa";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode, FaCode, FaWhatsapp } from "react-icons/fa";
 import { FaFilm, FaRegAddressCard } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -66,6 +66,20 @@ export const projects = [
     challenge: "Handling API data states while keeping the interface simple for quick lookup.",
   },
 
+  {
+    icon: <FaWhatsapp size={34} color="#25D366" />,
+    title: "WhatsApp Clone",
+    subtitle: "Real-time chat application",
+    desc: "A full-stack chat application replicating core WhatsApp features with real-time messaging powered by WebSockets.",
+    impact: "Demonstrates full-stack capability with live user presence, group chat rooms, and persistent message history.",
+    tags: ["React", "Socket.io", "Node.js", "Express"],
+    liveLink: "https://github.com/alippps",
+    sourceLink: "https://github.com/alippps",
+    preview: "whatsapp",
+    image: "",
+    features: ["Real-time messaging via Socket.io", "Multiple chat rooms", "Online/offline user status", "Persistent message history"],
+    challenge: "Synchronizing WebSocket connection state across multiple clients and handling disconnects cleanly without message loss.",
+  },
   {
     icon: <MdAttachMoney size={34} color="#34d399" />,
     title: "FinanceOS",

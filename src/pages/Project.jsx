@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaExternalLinkAlt, FaGithub, FaTimes } from "react-icons/fa";
 import styles from "../styles/Project.module.css";
 import { projects } from "../data/portfolioData";
 
 export default function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") setSelectedProject(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <section id="project" className={styles.project}>
@@ -26,17 +32,25 @@ export default function Project() {
                 <span />
                 <span />
               </div>
-              <div className={styles.previewBody}>
-                <div className={styles.previewPanel}>
-                  <strong>{project.title}</strong>
-                  <small>{project.subtitle}</small>
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  className={styles.cardPreviewImage}
+                />
+              ) : (
+                <div className={styles.previewBody}>
+                  <div className={styles.previewPanel}>
+                    <strong>{project.title}</strong>
+                    <small>{project.subtitle}</small>
+                  </div>
+                  <div className={styles.previewBars}>
+                    <span />
+                    <span />
+                    <span />
+                  </div>
                 </div>
-                <div className={styles.previewBars}>
-                  <span />
-                  <span />
-                  <span />
-                </div>
-              </div>
+              )}
             </div>
 
             <div className={styles.cardTop}>
@@ -116,6 +130,11 @@ export default function Project() {
 
             <p className="section-label">Case Study</p>
             <h3 id="project-detail-title" className={styles.modalTitle}>{selectedProject.title}</h3>
+            <div className={styles.modalTagRow}>
+              {selectedProject.tags.map((tag) => (
+                <span key={tag} className={styles.projTag}>{tag}</span>
+              ))}
+            </div>
             <p className={styles.modalDesc}>{selectedProject.desc}</p>
 
             <div className={styles.detailGrid}>

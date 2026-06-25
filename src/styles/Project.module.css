@@ -73,6 +73,31 @@
     linear-gradient(160deg, #10131d 0%, #161f34 100%);
 }
 
+.whatsapp {
+  background:
+    linear-gradient(135deg, rgba(37, 211, 102, 0.28), transparent 48%),
+    linear-gradient(160deg, #0e1510 0%, #142018 100%);
+}
+
+.financeos {
+  background:
+    linear-gradient(135deg, rgba(52, 211, 153, 0.3), transparent 48%),
+    linear-gradient(160deg, #0e1712 0%, #152215 100%);
+}
+
+.cardPreviewImage {
+  width: 100%;
+  height: 146px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.projCard:hover .cardPreviewImage {
+  transform: scale(1.03);
+}
+
 .previewChrome {
   height: 34px;
   display: flex;
@@ -279,7 +304,14 @@
 .modalTitle {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.modalTagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
 }
 
 .modalDesc {
@@ -323,9 +355,8 @@
   width: 100%;
   max-height: 360px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  margin-bottom: 1.2rem;
+  object-position: top;
+  display: block;
 }
 
 @media (max-width: 768px) {
