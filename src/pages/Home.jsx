@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
-const SEGMENTS = ["<", "AF", "/>"];
-const TYPE_DELAY  = 200;
+const SEGMENTS = ["< ","A", "L", "T", "E", "", " >"];
+const TYPE_DELAY   = 200;
 const DELETE_DELAY = 120;
-const PAUSE_FULL  = 1800;
-const PAUSE_EMPTY = 600;
+const PAUSE_FULL   = 1800;
+const PAUSE_EMPTY  = 600;
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -31,7 +31,7 @@ export default function Home() {
         <div>
           <p className={styles.homeRole}>WEB Developer</p>
           <h1 className={styles.homeH1}>
-            ALIF<br />FARHAN
+            ALIF<br />
           </h1>
           <p className={styles.homeSub}>
             I build responsive web apps, landing pages, and dashboards with React,
@@ -57,9 +57,9 @@ export default function Home() {
         <div className={styles.homeVisual}>
           <div className={styles.avatarWrap}>
             <div className={styles.codeMark}>
-              {count >= 1 && <span className={styles.codeOpen}>&lt;</span>}
-              {count >= 2 && <span className={styles.codeInitials}>AF</span>}
-              {count >= 3 && <span className={styles.codeClose}>/&gt;</span>}
+              <span className={styles.codeInitials}>
+                {SEGMENTS.slice(0, count).join("")}
+              </span>
               <span className={styles.codeCursor} aria-hidden="true">|</span>
             </div>
           </div>
