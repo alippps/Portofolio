@@ -2,11 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { FaEnvelope, FaFileDownload, FaPaperPlane } from "react-icons/fa";
 import s from "../styles/Sections.module.css";
 import { contact, socials } from "../data/portfolioData";
-
-const STORAGE_KEY = "portfolio_messages";
+import { supabase } from "../lib/supabase";
 
 function timeAgo(ts) {
-  const diff = (Date.now() - ts) / 1000;
+  const diff = (Date.now() - new Date(ts).getTime()) / 1000;
   if (diff < 60) return "just now";
   if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
   if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
@@ -18,39 +17,51 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(true);
   const bottomRef = useRef(null);
+  const isMounted = useRef(false);
 
   useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-      setMessages(saved);
-    } catch {
-      setMessages([]);
-    }
+    const fetchMessages = async () => {
+      const { data } = await supabase
+        .from("comments")
+        .select("*")
+        .order("created_at", { ascending: true });
+      if (data) setMessages(data);
+      setLoading(false);
+    };
+    fetchMessages();
+
+    const channel = supabase
+      .channel("comments-realtime")
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "comments" }, (payload) => {
+        setMessages((prev) => [...prev, payload.new]);
+      })
+      .subscribe();
+
+    return () => supabase.removeChannel(channel);
   }, []);
 
   useEffect(() => {
+    if (!isMounted.current) { isMounted.current = true; return; }
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
     if (!message.trim()) return;
 
-    const newMsg = {
-      id: Date.now(),
+    const { error } = await supabase.from("comments").insert({
       name: name.trim() || "Anonymous",
-      text: message.trim(),
-      ts: Date.now(),
-    };
+      message: message.trim(),
+    });
 
-    const updated = [...messages, newMsg];
-    setMessages(updated);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-    setMessage("");
-    setName("");
-    setSent(true);
-    setTimeout(() => setSent(false), 2500);
+    if (!error) {
+      setMessage("");
+      setName("");
+      setSent(true);
+      setTimeout(() => setSent(false), 2500);
+    }
   };
 
   const contactLinks = [
@@ -61,7 +72,6 @@ export default function Contact() {
   return (
     <section id="contact" className={s.contact}>
       <div className={`${s.contactLayout} reveal`}>
-        {/* Left — info */}
         <div className={s.contactLeft}>
           <p className="section-label">Contact</p>
           <h2 className="section-title">Let's Work Together</h2>
@@ -90,9 +100,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right — message box */}
         <div className={s.contactRight}>
-          {/* Inbox */}
           <div className={s.inbox}>
             <div className={s.inboxHeader}>
               <FaEnvelope size={13} />
@@ -103,16 +111,18 @@ export default function Contact() {
             </div>
 
             <div className={s.inboxBody}>
-              {messages.length === 0 ? (
+              {loading ? (
+                <p className={s.inboxEmpty}>Loading...</p>
+              ) : messages.length === 0 ? (
                 <p className={s.inboxEmpty}>No messages yet. Say hi below!</p>
               ) : (
                 messages.map((m) => (
                   <div key={m.id} className={s.msgBubble}>
                     <div className={s.msgMeta}>
                       <span className={s.msgName}>{m.name}</span>
-                      <span className={s.msgTime}>{timeAgo(m.ts)}</span>
+                      <span className={s.msgTime}>{timeAgo(m.created_at)}</span>
                     </div>
-                    <p className={s.msgText}>{m.text}</p>
+                    <p className={s.msgText}>{m.message}</p>
                   </div>
                 ))
               )}
@@ -120,7 +130,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
           <form className={s.msgForm} onSubmit={handleSend}>
             <input
               className={s.msgInput}
