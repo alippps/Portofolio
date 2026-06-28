@@ -30,6 +30,7 @@ export default function Home() {
       <div className={styles.homeGrid}>
         <div>
           <p className={styles.homeRole}>WEB Developer</p>
+          <p>👋IM </p>
           <h1 className={styles.homeH1}>
             ALIF<br />
           </h1>
