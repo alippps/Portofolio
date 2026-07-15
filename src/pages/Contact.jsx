@@ -35,7 +35,7 @@ export default function Contact() {
     const channel = supabase
       .channel("comments-realtime")
       .on("postgres_changes", { event: "INSERT", schema: "public", table: "comments" }, (payload) => {
-        setMessages((prev) => [...prev, payload.new]);
+        setMessages((prev) => (prev.some((m) => m.id === payload.new.id) ? prev : [...prev, payload.new]));
       })
       .subscribe();
 
@@ -51,12 +51,19 @@ export default function Contact() {
     e.preventDefault();
     if (!message.trim()) return;
 
-    const { error } = await supabase.from("comments").insert({
-      name: name.trim() || "Anonymous",
-      message: message.trim(),
-    });
+    const { data, error } = await supabase
+      .from("comments")
+      .insert({
+        name: name.trim() || "Anonymous",
+        message: message.trim(),
+      })
+      .select()
+      .single();
 
     if (!error) {
+      if (data) {
+        setMessages((prev) => (prev.some((m) => m.id === data.id) ? prev : [...prev, data]));
+      }
       setMessage("");
       setName("");
       setSent(true);
