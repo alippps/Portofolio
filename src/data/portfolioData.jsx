@@ -1,11 +1,11 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode, FaCode, FaWhatsapp } from "react-icons/fa";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode, FaCode, FaWhatsapp,FaFileCode } from "react-icons/fa";
 import { FaFilm, FaRegAddressCard } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
 import { IoNewspaper } from "react-icons/io5";
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
-  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython,
+  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython,SiApachetomcat
 } from "react-icons/si";
 
 export const projects = [
@@ -73,8 +73,8 @@ export const projects = [
     desc: "A full-stack chat application replicating core WhatsApp features with real-time messaging powered by WebSockets.",
     impact: "Demonstrates full-stack capability with live user presence, group chat rooms, and persistent message history.",
     tags: ["React", "Socket.io", "Node.js", "Express"],
-    liveLink: "https://github.com/alippps",
-    sourceLink: "https://github.com/alippps",
+    liveLink: "https://github.com/alippps/WhatsappClone",
+    sourceLink: "https://github.com/alippps/WhatsappClone",
     preview: "whatsapp",
     image: "",
     features: ["Real-time messaging via Socket.io", "Multiple chat rooms", "Online/offline user status", "Persistent message history"],
@@ -119,19 +119,22 @@ export const certificates = [
 ];
 
 export const skills = [
-  { name: "JavaScript",  icon: <SiJavascript  size={22} color="#f7df1e" /> },
-  { name: "TypeScript",  icon: <SiTypescript  size={22} color="#3178c6" /> },
-  { name: "React",       icon: <SiReact       size={22} color="#61dafb" /> },
-  { name: "Next.js",     icon: <SiNextdotjs   size={22} color="#ffffff" /> },
-  { name: "Node.js",     icon: <SiNodedotjs   size={22} color="#43a047" /> },
-  { name: "Express",     icon: <SiExpress     size={22} color="#aaaaaa" /> },
-  { name: "PostgreSQL",  icon: <SiPostgresql  size={22} color="#4169e1" /> },
-  { name: "TailwindCSS", icon: <SiTailwindcss size={22} color="#06b6d4" /> },
-  { name: "Docker",      icon: <SiDocker      size={22} color="#2496ed" /> },
-  { name: "Git",         icon: <SiGit         size={22} color="#f05032" /> },
-  { name: "Figma",       icon: <SiFigma       size={22} color="#f24e1e" /> },
-  { name: "Python",      icon: <SiPython      size={22} color="#ffd43b" /> },
-  { name: "REST API",    icon: <FaCode        size={22} color="#22d3ee" /> },
+  { name: "JavaScript",  icon: <SiJavascript    size={22} color="#f7df1e" /> },
+  { name: "TypeScript",  icon: <SiTypescript    size={22} color="#3178c6" /> },
+  { name: "React",       icon: <SiReact         size={22} color="#61dafb" /> },
+  { name: "Next.js",     icon: <SiNextdotjs     size={22} color="#ffffff" /> },
+  { name: "Node.js",     icon: <SiNodedotjs     size={22} color="#43a047" /> },
+  { name: "Express",     icon: <SiExpress       size={22} color="#aaaaaa" /> },
+  { name: "PostgreSQL",  icon: <SiPostgresql    size={22} color="#4169e1" /> },
+  { name: "TailwindCSS", icon: <SiTailwindcss   size={22} color="#06b6d4" /> },
+  { name: "Docker",      icon: <SiDocker        size={22} color="#2496ed" /> },
+  { name: "Git",         icon: <SiGit           size={22} color="#f05032" /> },
+  { name: "Figma",       icon: <SiFigma         size={22} color="#f24e1e" /> },
+  { name: "Python",      icon: <SiPython        size={22} color="#ffd43b" /> },
+  { name: "REST API",    icon: <FaCode          size={22} color="#22d3ee" /> },
+  { name: "BIRT",        icon: <FaFileCode      size={22} color="#22d3ee" /> },
+  { name: "Tomcat",      icon: <SiApachetomcat  size={22} color="#65DCD5" /> },
+  
 ];
 
 export const stats = [
