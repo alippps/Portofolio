@@ -4,17 +4,172 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alif Farhan - CV</title>
-    <link rel="stylesheet" href="alif-farhan-cv.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 48px;
+        color: #111827;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        background: #f9fafb;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 40px 48px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.25;
+      }
+
+      h1 {
+        margin: 0 0 4px;
+        font-size: 32px;
+        letter-spacing: 0.5px;
+      }
+
+      h2 {
+        display: inline-block;
+        margin-top: 30px;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #e5e7eb;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #1f2937;
+      }
+
+      h3 {
+        margin: 14px 0 2px;
+        font-size: 15px;
+      }
+
+      p {
+        margin: 6px 0;
+      }
+
+      ul {
+        margin: 6px 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      .role {
+        font-weight: 600;
+        color: #374151;
+        margin-top: 2px;
+      }
+
+      .contact-line {
+        color: #4b5563;
+        font-size: 14px;
+        margin-bottom: 2px;
+      }
+
+      .contact-links {
+        font-size: 14px;
+      }
+
+      .contact-links a:not(:first-child)::before {
+        content: "·";
+        margin: 0 8px;
+        color: #9ca3af;
+      }
+
+      .muted {
+        color: #6b7280;
+      }
+
+      .skills-list {
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        gap: 8px 20px;
+        margin: 6px 0;
+        text-align: left;
+      }
+
+      .skills-list dt {
+        font-weight: 700;
+        color: #1f2937;
+        text-align: right;
+      }
+
+      .skills-list dd {
+        margin: 0;
+        color: #374151;
+      }
+
+      .job-header,
+      .project-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .job-header .dates,
+      .project-header .stack {
+        color: #6b7280;
+        font-size: 13.5px;
+        font-style: italic;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #e5e7eb;
+        margin: 24px 0;
+      }
+
+      @media (max-width: 520px) {
+        .skills-list {
+          display: block;
+          text-align: center;
+        }
+        .skills-list dt {
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+          padding: 0;
+        }
+        main {
+          box-shadow: none;
+          padding: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <main>
       <h1>ALIF FARHAN</h1>
       <p class="role">Frontend Developer | Software Engineer</p>
-      <p class="contact-line">
-        Bandung, Indonesia<br />
-        📧 <a href="mailto:aliffaehan111@gmail.com">aliffaehan111@gmail.com</a> | 📱 [+62 xxx-xxxx-xxxx]<br />
-        GitHub: <a href="https://github.com/alippps" target="_blank" rel="noreferrer">github.com/alippps</a> |
-        LinkedIn: <a href="https://linkedin.com/in/alif-Farhan" target="_blank" rel="noreferrer">linkedin.com/in/alif-Farhan</a>
+      <p class="contact-line">Jakarta, Indonesia</p>
+      <p class="contact-links">
+        <a href="mailto:aliffaehan111@gmail.com">aliffaehan111@gmail.com</a>
+        <a href="https://github.com/alippps" target="_blank" rel="noreferrer">github.com/alippps</a>
+        <a href="https://linkedin.com/in/alif-Farhan" target="_blank" rel="noreferrer">linkedin.com/in/alif-Farhan</a>
       </p>
 
       <h2>Professional Summary</h2>
@@ -26,31 +181,29 @@
       </p>
 
       <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div>
-          <strong>Languages</strong>
-          <p>JavaScript, TypeScript, PHP, SQL</p>
+      <dl class="skills-list">
+        <dt>Languages</dt>
+        <dd>JavaScript, TypeScript, PHP, SQL</dd>
 
-          <strong>Backend</strong>
-          <p>Laravel, CodeIgniter, REST API</p>
-        </div>
-        <div>
-          <strong>Frontend</strong>
-          <p>Angular, React, HTML5, CSS3, Bootstrap, Tailwind CSS</p>
+        <dt>Frontend</dt>
+        <dd>Angular, React, HTML5, CSS3, Bootstrap, Tailwind CSS</dd>
 
-          <strong>Database</strong>
-          <p>PostgreSQL, MySQL</p>
-        </div>
-      </div>
-      <strong>Tools</strong>
-      <p>Git, GitHub, DBeaver, Postman, VS Code, Docker</p>
+        <dt>Backend</dt>
+        <dd>Laravel, CodeIgniter, REST API</dd>
+
+        <dt>Database</dt>
+        <dd>PostgreSQL, MySQL</dd>
+
+        <dt>Tools</dt>
+        <dd>Git, GitHub, DBeaver, Postman, VS Code, Docker</dd>
+      </dl>
 
       <h2>Professional Experience</h2>
       <div class="job-header">
         <h3>Software Developer</h3>
-        <span class="dates">2025 – Present</span>
+        <span class="dates">June 2024 – Present</span>
       </div>
-      <p class="muted">[Company Name]</p>
+      <p class="muted">[Company Name - {To DO}]</p>
       <ul>
         <li>Developed and maintained enterprise web applications using Angular and TypeScript.</li>
         <li>Built responsive user interfaces based on business requirements.</li>
@@ -95,9 +248,15 @@
 
       <h2>Education</h2>
       <p>
-        <strong>Bachelor's Degree — Information Systems</strong><br />
-        [University Name]<br />
-        Expected Graduation: [20XX]
+        <strong>Bachelor's Degree — Software Engineering / Rekayasa Perangkat Lunak </strong><br />
+        [SMKS Prestasi Prima Jakarta]<br />
+        Graduation: [June 2024]
+      </p>
+
+      <p>
+        <strong>Bachelor's Degree — Information Systems </strong><br />
+        [Universitas Bina Sarana Informatika]<br />
+        Expected Graduation: [2029]
       </p>
 
       <h2>Certifications</h2>
