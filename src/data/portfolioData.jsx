@@ -19,7 +19,9 @@ export const projects = [
     liveLink: "https://coding-studio-landing-page.vercel.app/",
     sourceLink: "https://github.com/alippps",
     preview: "landing",
-    image:"/project/studio-coding.png",
+    image: "/project/studio-coding.webp",
+    imageWidth: 1200,
+    imageHeight: 571,
     features: ["Responsive hero section", "Event-focused call to action", "Clean section structure"],
     challenge: "Keeping the layout polished across mobile and desktop while preserving simple content flow.",
   },
@@ -32,7 +34,9 @@ export const projects = [
     tags: ["JavaScript", "HTML", "CSS"],
     liveLink: "https://finannce-app-three.vercel.app/",
     sourceLink: "https://github.com/alippps",
-    image:"/project/finance-app.png",
+    image: "/project/finance-app.webp",
+    imageWidth: 1200,
+    imageHeight: 570,
     preview: "finance",
     features: ["Transaction input", "Income and expense summary", "Simple dashboard view"],
     challenge: "Making the finance summary readable without overwhelming the main interaction.",
@@ -46,7 +50,9 @@ export const projects = [
     tags: ["React", "CSS", "JavaScript"],
     liveLink: "https://come-coffe.vercel.app/",
     sourceLink: "https://github.com/alippps",
-    image:"/project/come-coffe.png",
+    image: "/project/come-coffe.webp",
+    imageWidth: 1200,
+    imageHeight: 573,
     preview: "coffee",
     features: ["Product showcase", "Responsive menu layout", "Strong visual hierarchy"],
     challenge: "Balancing a cozy brand feel with a clean and performant frontend.",
@@ -60,7 +66,9 @@ export const projects = [
     tags: ["JavaScript", "CSS", "HTML"],
     liveLink: "https://mini-movie-beryl.vercel.app/",
     sourceLink: "https://github.com/alippps",
-    image:"/project/al-cinema.png",
+    image: "/project/al-cinema.webp",
+    imageWidth: 1200,
+    imageHeight: 571,
     preview: "movie",
     features: ["Movie search", "Film detail display", "API-driven content"],
     challenge: "Handling API data states while keeping the interface simple for quick lookup.",
@@ -89,7 +97,9 @@ export const projects = [
     tags: ["TypeScript", "CSS", "JavaScript"],
     liveLink: "https://finance-app-v2-wine.vercel.app",
     sourceLink: "https://github.com/alippps/finance-appV2",
-    image: "/project/finance-appv2.png",
+    image: "/project/finance-appv2.webp",
+    imageWidth: 984,
+    imageHeight: 556,
     preview: "financeos",
     features: ["User login and authentication", "Income and expense tracking", "Budget and balance dashboard"],
     challenge: "Redesigning the v1 layout into a more structured dashboard while adding auth without overcomplicating the flow.",
@@ -102,19 +112,24 @@ export const certificates = [
     title: "Lembaga Sertifikasi Profesi (LSP)",
     issuer: "Certified by the National Professional Certification Agency",
     date: "Jun 2024",
+    // Paste the public verification link (or a scan URL). Leave "" to render
+    // the card as plain text instead of a link.
+    credentialUrl: "",
   },
   {
     icon: <FaAngular size={25} color="#ef4444" />,
     title: "Angular Course",
     issuer: "Course completion certificate",
     date: "Mar 2025",
+    credentialUrl: "",
   },
 
   {
     icon: <IoNewspaper size={25} color="#efdecd" />,
     title: "Colloquium",
-    issuer: "Career Expolaration 2026 x Coding Studio",
-    date: "Juni 2026",
+    issuer: "Career Exploration 2026 x Coding Studio",
+    date: "Jun 2026",
+    credentialUrl: "",
   },
 ];
 
@@ -152,7 +167,11 @@ export const socials = [
 ];
 
 export const contact = {
-  cv: "/alif-farhan-cv.html",
+  // PDF is what recruiters and ATS systems expect. Regenerate it from
+  // public/alif-farhan-cv.html after editing that file — see the README.
+  // --no-pdf-header-footer is not optional: without it Chrome stamps the
+  // source file:// path onto every page of a CV strangers will download.
+  cv: "/alif-farhan-cv.pdf",
 };
 
 export default projects;

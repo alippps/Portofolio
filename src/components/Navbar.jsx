@@ -1,8 +1,13 @@
 import { useState } from "react";
 import styles from "../styles/Navbar.module.css";
+import { useDialog } from "../hooks/useDialog";
 
 export default function Navbar({ scrolled, activeSection, navLinks }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
+  // Handles Escape, background scroll lock, Tab trapping and focus restore.
+  const menuRef = useDialog(menuOpen, closeMenu);
 
   return (
     <>
@@ -25,7 +30,9 @@ export default function Navbar({ scrolled, activeSection, navLinks }) {
         <button
           className={`${styles.menuBtn} ${menuOpen ? styles.menuBtnOpen : ""}`}
           onClick={() => setMenuOpen((p) => !p)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <span />
           <span />
@@ -38,15 +45,20 @@ export default function Navbar({ scrolled, activeSection, navLinks }) {
         <div
           className={styles.mobileOverlay}
           role="presentation"
-          onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
         >
-          <ul className={styles.mobileLinks} onClick={(e) => e.stopPropagation()}>
+          <ul
+            id="mobile-menu"
+            ref={menuRef}
+            className={styles.mobileLinks}
+            onClick={(e) => e.stopPropagation()}
+          >
             {navLinks.map((name, i) => (
               <li key={name} style={{ animationDelay: `${i * 0.06}s` }}>
                 <a
                   href={`#${name.toLowerCase()}`}
                   className={activeSection === name.toLowerCase() ? styles.activeMobile : ""}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMenu}
                 >
                   {name}
                 </a>

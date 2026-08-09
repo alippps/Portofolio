@@ -54,6 +54,28 @@
   opacity: 1;
 }
 
+.certCardLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.certVerify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.certCardLink:hover .certVerify {
+  opacity: 1;
+}
+
 .certIcon {
   width: 44px;
   height: 44px;
@@ -342,6 +364,12 @@
 
 .msgSendBtn.sent {
   background: #22c55e;
+}
+
+.msgError {
+  color: #f87171;
+  font-size: 0.78rem;
+  margin: 0;
 }
 
 @media (max-width: 900px) {

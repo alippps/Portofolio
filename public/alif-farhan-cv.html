@@ -149,6 +149,11 @@
         }
       }
 
+      @page {
+        size: A4;
+        margin: 14mm 15mm;
+      }
+
       @media print {
         body {
           background: #ffffff;
@@ -157,6 +162,14 @@
         main {
           box-shadow: none;
           padding: 0;
+          max-width: none;
+        }
+        h2 {
+          break-after: avoid;
+        }
+        li,
+        .skills-list div {
+          break-inside: avoid;
         }
       }
     </style>
@@ -189,7 +202,7 @@
         <dd>Angular, React, HTML5, CSS3, Bootstrap, Tailwind CSS</dd>
 
         <dt>Backend</dt>
-        <dd>Laravel, CodeIgniter, REST API</dd>
+        <dd>Laravel, CodeIgniter, REST API, GO</dd>
 
         <dt>Database</dt>
         <dd>PostgreSQL, MySQL</dd>
@@ -203,7 +216,7 @@
         <h3>Software Developer</h3>
         <span class="dates">June 2024 – Present</span>
       </div>
-      <p class="muted">[Company Name - {To DO}]</p>
+      <p class="muted">[Company Name - PT Rofasys Mitra Prima]</p>
       <ul>
         <li>Developed and maintained enterprise web applications using Angular and TypeScript.</li>
         <li>Built responsive user interfaces based on business requirements.</li>
@@ -267,10 +280,7 @@
       </ul>
 
       <h2>Languages</h2>
-      <ul>
-        <li>Indonesian (Native)</li>
-        <li>English (Professional Working Proficiency)</li>
-      </ul>
+      <p>Indonesian (Native) • English (Professional Working Proficiency)</p>
     </main>
   </body>
 </html>

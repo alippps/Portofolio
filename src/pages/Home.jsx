@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
-const SEGMENTS = ["< ","A", "L", "T", "E", "", " >"];
+const SEGMENTS = ["< ", "A", "L", "T", "E", " >"];
 const TYPE_DELAY   = 200;
 const DELETE_DELAY = 120;
 const PAUSE_FULL   = 1800;
@@ -29,11 +29,11 @@ export default function Home() {
     <section id="home" className={styles.home}>
       <div className={styles.homeGrid}>
         <div>
-          <p className={styles.homeRole}>WEB Developer</p>
-          <p>👋IM </p>
-          <h1 className={styles.homeH1}>
-            ALIF<br />
-          </h1>
+          <p className={styles.homeRole}>Web Developer</p>
+          <p className={styles.homeGreeting}>
+            <span aria-hidden="true">👋</span> Hi, I&apos;m
+          </p>
+          <h1 className={styles.homeH1}>ALIF</h1>
           <p className={styles.homeSub}>
             I build responsive web apps, landing pages, and dashboards with React,
             with a focus on clean UI and practical performance. I work fluidly

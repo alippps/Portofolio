@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaExternalLinkAlt, FaGithub, FaTimes } from "react-icons/fa";
 import styles from "../styles/Project.module.css";
 import { projects } from "../data/portfolioData";
+import { useDialog } from "../hooks/useDialog";
 
 export default function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const closeModal = () => setSelectedProject(null);
 
-  useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") setSelectedProject(null); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  // Handles Escape, background scroll lock, Tab trapping and focus restore.
+  const modalRef = useDialog(Boolean(selectedProject), closeModal);
 
   return (
     <section id="project" className={styles.project}>
@@ -37,6 +36,10 @@ export default function Project() {
                   src={project.image}
                   alt={`${project.title} preview`}
                   className={styles.cardPreviewImage}
+                  width={project.imageWidth}
+                  height={project.imageHeight}
+                  loading="lazy"
+                  decoding="async"
                 />
               ) : (
                 <div className={styles.previewBody}>
@@ -84,8 +87,9 @@ export default function Project() {
       </div>
 
       {selectedProject && (
-        <div className={styles.modalOverlay} role="presentation" onClick={() => setSelectedProject(null)}>
+        <div className={styles.modalOverlay} role="presentation" onClick={closeModal}>
           <article
+            ref={modalRef}
             className={styles.modal}
             role="dialog"
             aria-modal="true"
@@ -95,7 +99,7 @@ export default function Project() {
             <button
               type="button"
               className={styles.closeBtn}
-              onClick={() => setSelectedProject(null)}
+              onClick={closeModal}
               aria-label="Close project detail"
             >
               <FaTimes />
@@ -112,6 +116,9 @@ export default function Project() {
                   src={selectedProject.image}
                   alt={`${selectedProject.title} preview`}
                   className={styles.modalImage}
+                  width={selectedProject.imageWidth}
+                  height={selectedProject.imageHeight}
+                  decoding="async"
                 />
               ) : (
                 <div className={styles.previewBody}>

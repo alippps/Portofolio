@@ -17,17 +17,21 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [loadFailed, setLoadFailed] = useState(false);
   const bottomRef = useRef(null);
   const isMounted = useRef(false);
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const { data } = await supabase
+      const { data, error: fetchError } = await supabase
         .from("comments")
         .select("*")
         .order("created_at", { ascending: true });
-      if (data) setMessages(data);
+      if (fetchError) setLoadFailed(true);
+      else if (data) setMessages(data);
       setLoading(false);
     };
     fetchMessages();
@@ -44,14 +48,19 @@ export default function Contact() {
 
   useEffect(() => {
     if (!isMounted.current) { isMounted.current = true; return; }
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    // block: "nearest" keeps the scroll inside the inbox container.
+    // Without it an incoming realtime message yanks the whole page to #contact.
+    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }, [messages]);
 
   const handleSend = async (e) => {
     e.preventDefault();
-    if (!message.trim()) return;
+    if (!message.trim() || sending) return;
 
-    const { data, error } = await supabase
+    setSending(true);
+    setError("");
+
+    const { data, error: insertError } = await supabase
       .from("comments")
       .insert({
         name: name.trim() || "Anonymous",
@@ -60,19 +69,31 @@ export default function Contact() {
       .select()
       .single();
 
-    if (!error) {
-      if (data) {
-        setMessages((prev) => (prev.some((m) => m.id === data.id) ? prev : [...prev, data]));
-      }
-      setMessage("");
-      setName("");
-      setSent(true);
-      setTimeout(() => setSent(false), 2500);
+    setSending(false);
+
+    if (insertError) {
+      // The rate-limit trigger raises a message meant for the visitor;
+      // anything else is an internal detail not worth exposing.
+      const raised = insertError.message || "";
+      setError(
+        /rate limit:/i.test(raised)
+          ? raised.replace(/^.*rate limit:\s*/i, "")
+          : "Message failed to send. Please try again."
+      );
+      return;
     }
+
+    if (data) {
+      setMessages((prev) => (prev.some((m) => m.id === data.id) ? prev : [...prev, data]));
+    }
+    setMessage("");
+    setName("");
+    setSent(true);
+    setTimeout(() => setSent(false), 2500);
   };
 
   const contactLinks = [
-    { icon: <FaFileDownload />, label: "Resume", value: "Download CV", href: contact.cv, download: "Alif-Farhan-CV.html" },
+    { icon: <FaFileDownload />, label: "Resume", value: "Download CV", href: contact.cv, download: "Alif-Farhan-CV.pdf" },
     ...socials.map(({ icon, label, href }) => ({ icon, label, value: "View profile", href })),
   ];
 
@@ -120,6 +141,8 @@ export default function Contact() {
             <div className={s.inboxBody}>
               {loading ? (
                 <p className={s.inboxEmpty}>Loading...</p>
+              ) : loadFailed ? (
+                <p className={s.inboxEmpty}>Could not load messages right now.</p>
               ) : messages.length === 0 ? (
                 <p className={s.inboxEmpty}>No messages yet. Say hi below!</p>
               ) : (
@@ -158,12 +181,17 @@ export default function Contact() {
               <button
                 type="submit"
                 className={`${s.msgSendBtn} ${sent ? s.sent : ""}`}
-                disabled={!message.trim()}
+                disabled={!message.trim() || sending}
                 aria-label="Send"
               >
                 {sent ? "✓" : <FaPaperPlane size={14} />}
               </button>
             </div>
+            {error && (
+              <p className={s.msgError} role="alert">
+                {error}
+              </p>
+            )}
           </form>
         </div>
       </div>
