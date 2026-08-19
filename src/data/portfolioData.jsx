@@ -1,5 +1,5 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaShieldAlt, FaPython, FaDocker, FaLaptopCode, FaCode, FaWhatsapp,FaFileCode } from "react-icons/fa";
-import { FaFilm, FaRegAddressCard } from "react-icons/fa6";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaCode, FaWhatsapp, FaFileCode } from "react-icons/fa";
+import { FaFilm, FaRegAddressCard,FaGolang  } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
 import { IoNewspaper } from "react-icons/io5";
@@ -149,6 +149,7 @@ export const skills = [
   { name: "REST API",    icon: <FaCode          size={22} color="#22d3ee" /> },
   { name: "BIRT",        icon: <FaFileCode      size={22} color="#22d3ee" /> },
   { name: "Tomcat",      icon: <SiApachetomcat  size={22} color="#65DCD5" /> },
+  { name: "GOLang",      icon: <FaGolang        size={22} color="#65DCD5" /> },
   
 ];
 
@@ -162,8 +163,8 @@ export const navLinks = ["Home", "About", "Project", "Certificate", "Contact"];
 
 export const socials = [
   { icon: <FaGithub size={15} />, label: "GitHub", href: "https://github.com/alippps" },
-  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://linkedin.com/in/alif-Farhan" },
-  { icon: <FaInstagram size={15} />, label: "Instagram", href: "https://instagram.com/alippps" },
+  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://linkedin.com" },
+  { icon: <FaInstagram size={15} />, label: "Instagram", href: "https://www.instagram.com/aliffarrhan/" },
 ];
 
 export const contact = {
