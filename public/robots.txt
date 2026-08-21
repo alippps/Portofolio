@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: ganti example.vercel.app dengan domain production kamu.
-Sitemap: https://example.vercel.app/sitemap.xml
+Sitemap: https://alffar.vercel.app/sitemap.xml
