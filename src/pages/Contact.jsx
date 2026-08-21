@@ -22,7 +22,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(true);
   const [loadFailed, setLoadFailed] = useState(false);
   const bottomRef = useRef(null);
-  const isMounted = useRef(false);
+  const seenCount = useRef(null);
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -47,11 +47,25 @@ export default function Contact() {
   }, []);
 
   useEffect(() => {
-    if (!isMounted.current) { isMounted.current = true; return; }
-    // block: "nearest" keeps the scroll inside the inbox container.
-    // Without it an incoming realtime message yanks the whole page to #contact.
-    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [messages]);
+    // Only a message arriving *after* the inbox has loaded should move the
+    // view. The initial fetch also lands here - it replaces [] with a fresh
+    // array, so a plain "did this run before?" flag lets the first load
+    // through and scrolls the visitor past the page on arrival.
+    if (seenCount.current === null) {
+      if (!loading) seenCount.current = messages.length;
+      return;
+    }
+    if (messages.length <= seenCount.current) return;
+    seenCount.current = messages.length;
+
+    // .inboxBody only scrolls once it overflows its 220px max-height. While
+    // it is short, scrollIntoView walks up to the document and drags the whole
+    // page instead, so scroll the container by hand when it can take it.
+    const body = bottomRef.current?.parentElement;
+    if (body && body.scrollHeight > body.clientHeight) {
+      body.scrollTo({ top: body.scrollHeight, behavior: "smooth" });
+    }
+  }, [messages, loading]);
 
   const handleSend = async (e) => {
     e.preventDefault();
