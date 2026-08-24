@@ -1,11 +1,12 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaCode, FaWhatsapp, FaFileCode } from "react-icons/fa";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaCode, FaWhatsapp, FaFileCode,FaRedhat  } from "react-icons/fa";
 import { FaFilm, FaRegAddressCard,FaGolang  } from "react-icons/fa6";
-import { MdAttachMoney } from "react-icons/md";
+import { MdAttachMoney,MdOutlinePointOfSale  } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
 import { IoNewspaper } from "react-icons/io5";
+import { AiOutlineKubernetes } from "react-icons/ai";
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
-  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython,SiApachetomcat
+  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython,SiApachetomcat,SiApachekafka 
 } from "react-icons/si";
 
 export const projects = [
@@ -104,6 +105,29 @@ export const projects = [
     features: ["User login and authentication", "Income and expense tracking", "Budget and balance dashboard"],
     challenge: "Redesigning the v1 layout into a more structured dashboard while adding auth without overcomplicating the flow.",
   },
+
+  // { 
+  //   icon: <MdOutlinePointOfSale size={34} color="#34d399" />,
+  //   title: "To Do POS",
+  //   subtitle: "One POS system for many small businesses",
+  //   desc: "A multi-tenant point-of-sale system for food & beverage MSMEs. Customers scan a QR code at their table and order from their own phone — no app download, no account. Orders land on the cashier screen in real time, move through a kitchen stage, and close when paid.",
+  //   impact: "Removes paper tickets and counter queues, while letting several businesses share one deployment instead of paying for a system each.",
+  //   tags: ["Next.js", "React", "Supabase", "PostgreSQL", "Tailwind CSS"],
+  //   liveLink: "https://to-do-pos.vercel.app",
+  //   sourceLink: "https://github.com/alippps/To-doCoffe",
+  //   image: "/project/todo-pos.webp",
+  //   imageWidth: 984,
+  //   imageHeight: 556,
+  //   preview: "todopos",
+  //   features: [
+  //     "QR ordering with the table number locked to the code",
+  //     "Cashier screen that updates itself over Supabase Realtime",
+  //     "Order stages: pending → in progress → ready → paid",
+  //     "Multi-tenant isolation enforced by PostgreSQL Row Level Security",
+  //     "Self-service onboarding for new businesses",
+  //   ],
+  //   challenge: "Keeping each outlet's data truly separate without scattering tenant filters across the codebase — solved by pushing isolation down to Row Level Security, so the database refuses cross-tenant reads even if a query slips through.",
+  // },
 ];
 
 export const certificates = [
@@ -134,22 +158,26 @@ export const certificates = [
 ];
 
 export const skills = [
-  { name: "JavaScript",  icon: <SiJavascript    size={22} color="#f7df1e" /> },
-  { name: "TypeScript",  icon: <SiTypescript    size={22} color="#3178c6" /> },
-  { name: "React",       icon: <SiReact         size={22} color="#61dafb" /> },
-  { name: "Next.js",     icon: <SiNextdotjs     size={22} color="#ffffff" /> },
-  { name: "Node.js",     icon: <SiNodedotjs     size={22} color="#43a047" /> },
-  { name: "Express",     icon: <SiExpress       size={22} color="#aaaaaa" /> },
-  { name: "PostgreSQL",  icon: <SiPostgresql    size={22} color="#4169e1" /> },
-  { name: "TailwindCSS", icon: <SiTailwindcss   size={22} color="#06b6d4" /> },
-  { name: "Docker",      icon: <SiDocker        size={22} color="#2496ed" /> },
-  { name: "Git",         icon: <SiGit           size={22} color="#f05032" /> },
-  { name: "Figma",       icon: <SiFigma         size={22} color="#f24e1e" /> },
-  { name: "Python",      icon: <SiPython        size={22} color="#ffd43b" /> },
-  { name: "REST API",    icon: <FaCode          size={22} color="#22d3ee" /> },
-  { name: "BIRT",        icon: <FaFileCode      size={22} color="#22d3ee" /> },
-  { name: "Tomcat",      icon: <SiApachetomcat  size={22} color="#65DCD5" /> },
-  { name: "GOLang",      icon: <FaGolang        size={22} color="#65DCD5" /> },
+      { name: "JavaScript",  icon: <SiJavascript               size={22} color="#f7df1e" /> },
+      { name: "TypeScript",  icon: <SiTypescript               size={22} color="#3178c6" /> },
+      { name: "React",       icon: <SiReact                    size={22} color="#61dafb" /> },
+      { name: "Next.js",     icon: <SiNextdotjs                size={22} color="#ffffff" /> },
+      { name: "Node.js",     icon: <SiNodedotjs                size={22} color="#43a047" /> },
+      { name: "Express",     icon: <SiExpress                  size={22} color="#aaaaaa" /> },
+      { name: "PostgreSQL",  icon: <SiPostgresql               size={22} color="#4169e1" /> },
+      { name: "TailwindCSS", icon: <SiTailwindcss              size={22} color="#06b6d4" /> },
+      { name: "Docker",      icon: <SiDocker                   size={22} color="#2496ed" /> },
+      { name: "Git",         icon: <SiGit                      size={22} color="#f05032" /> },
+      { name: "Figma",       icon: <SiFigma                    size={22} color="#f24e1e" /> },
+      { name: "Python",      icon: <SiPython                   size={22} color="#ffd43b" /> },
+      { name: "REST API",    icon: <FaCode                     size={22} color="#22d3ee" /> },
+      { name: "BIRT",        icon: <FaFileCode                 size={22} color="#22d3ee" /> },
+      { name: "Tomcat",      icon: <SiApachetomcat             size={22} color="#65DCD5" /> },
+      { name: "GOLang",      icon: <FaGolang                   size={22} color="#3368A0" /> },
+      { name: "RedHat",      icon: <FaRedhat                   size={22} color="#8B1E2D" /> },
+      { name: "Kubernetes",  icon: <AiOutlineKubernetes        size={22} color="#2196F3" /> },
+      { name: "Kafka",       icon:  <SiApachekafka             size={22} color="#000000" /> },
+
   
 ];
 
