@@ -2,7 +2,7 @@ import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaCode, F
 import { FaFilm, FaRegAddressCard,FaGolang  } from "react-icons/fa6";
 import { MdAttachMoney,MdOutlinePointOfSale  } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
-import { IoNewspaper } from "react-icons/io5";
+import { IoNewspaper,IoTrophy } from "react-icons/io5";
 import { AiOutlineKubernetes } from "react-icons/ai";
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
@@ -155,6 +155,14 @@ export const certificates = [
     date: "Jun 2026",
     credentialUrl: "",
   },
+
+  {
+    icon: <IoTrophy size={25} color="#efdecd" />,
+    title: "1st Place,Innovation & Development Competition",
+    issuer: "Universitas Atma Jaya Yogyakarta",
+    date: "August 2026",
+    credentialUrl: "",
+  }
 ];
 
 export const skills = [
