@@ -8,7 +8,7 @@ export default function Certificate() {
       <div className="reveal">
         <p className="section-label">Achievement</p>
         <h2 className="section-title">Certificate &amp; Award</h2>
-        <p className={s.certSubtitle}>Verified credentials and professional certifications earned.</p>
+        <p className={s.certSubtitle}>Professional certifications, courses, and competition results.</p>
       </div>
 
       <div className={s.certGrid}>

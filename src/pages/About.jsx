@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.css";
-import { stats } from "../data/portfolioData";
+import { stats, experience } from "../data/portfolioData";
 import SkillsMarquee from "../components/SkillsMarquee";
 
 export default function About() {
@@ -13,8 +13,9 @@ export default function About() {
 
           <div className={styles.aboutText}>
             <p>
-              I am a web developer with 2+ years of experience building responsive,
-              maintainable, and performance-minded web applications.
+              I am a software developer with 2+ years of professional experience
+              building enterprise web applications with Angular and TypeScript, and
+              side projects with React.
             </p>
             <p>
               My focus is turning ideas into clear user interfaces, connecting them
@@ -35,6 +36,34 @@ export default function About() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Experience */}
+      <div className={`${styles.experience} reveal`}>
+        <p className="section-label">Experience</p>
+        <ol className={styles.timeline}>
+          {experience.map((job) => (
+            <li key={`${job.company}-${job.period}`} className={styles.job}>
+              <div className={styles.jobHead}>
+                <div>
+                  <h3 className={styles.jobRole}>{job.role}</h3>
+                  <p className={styles.jobCompany}>{job.company}</p>
+                </div>
+                <span className={styles.jobPeriod}>{job.period}</span>
+              </div>
+              <ul className={styles.jobPoints}>
+                {job.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+              <div className={styles.jobTags}>
+                {job.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
 
       {/* Tech Stack Marquee */}

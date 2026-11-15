@@ -130,8 +130,6 @@
   align-items: start;
 }
 
-.contactLeft {}
-
 .contactRight {
   display: flex;
   flex-direction: column;
@@ -185,8 +183,14 @@
 }
 
 .contactLink small {
+  display: block;
   color: var(--muted);
   font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.contactLink > span:last-child {
+  min-width: 0;
 }
 
 .contactLink:hover {

@@ -75,9 +75,11 @@ export default function Project() {
               <button type="button" className={styles.detailBtn} onClick={() => setSelectedProject(project)}>
                 View Detail
               </button>
-              <a href={project.liveLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}>
-                <FaExternalLinkAlt />
-              </a>
+              {project.liveLink && (
+                <a href={project.liveLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live demo`}>
+                  <FaExternalLinkAlt />
+                </a>
+              )}
               <a href={project.sourceLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} source`}>
                 <FaGithub />
               </a>
@@ -160,10 +162,17 @@ export default function Project() {
             </div>
 
             <div className={styles.modalActions}>
-              <a className="btn btn-primary" href={selectedProject.liveLink} target="_blank" rel="noreferrer">
-                Live Demo
-              </a>
-              <a className="btn btn-outline" href={selectedProject.sourceLink} target="_blank" rel="noreferrer">
+              {selectedProject.liveLink && (
+                <a className="btn btn-primary" href={selectedProject.liveLink} target="_blank" rel="noreferrer">
+                  Live Demo
+                </a>
+              )}
+              <a
+                className={`btn ${selectedProject.liveLink ? "btn-outline" : "btn-primary"}`}
+                href={selectedProject.sourceLink}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Source Code
               </a>
             </div>

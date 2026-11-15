@@ -147,10 +147,6 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-
-  .alteLogo {
-    font-size: 2.6rem;
-  }
 }
 
 @media (max-width: 768px) {

@@ -5,148 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alif Farhan - CV</title>
     <style>
+      /*
+        Single-column, left-aligned layout: the format ATS parsers and
+        recruiters skim fastest. Regenerate the PDF after editing (see README).
+      */
       body {
         margin: 0;
         padding: 48px;
         color: #111827;
         font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.6;
-        background: #f9fafb;
+        font-size: 14px;
+        line-height: 1.5;
+        background: #f3f4f6;
       }
 
       main {
-        max-width: 760px;
+        max-width: 780px;
         margin: 0 auto;
         background: #ffffff;
         padding: 40px 48px;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        text-align: center;
       }
 
-      h1,
-      h2,
-      h3 {
-        line-height: 1.25;
+      header {
+        padding-bottom: 14px;
+        border-bottom: 2px solid #111827;
       }
 
       h1 {
-        margin: 0 0 4px;
-        font-size: 32px;
+        margin: 0;
+        font-size: 28px;
         letter-spacing: 0.5px;
-      }
-
-      h2 {
-        display: inline-block;
-        margin-top: 30px;
-        margin-bottom: 12px;
-        padding-bottom: 6px;
-        border-bottom: 2px solid #e5e7eb;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #1f2937;
-      }
-
-      h3 {
-        margin: 14px 0 2px;
-        font-size: 15px;
-      }
-
-      p {
-        margin: 6px 0;
-      }
-
-      ul {
-        margin: 6px 0;
-        padding-left: 0;
-        list-style: none;
-      }
-
-      li {
-        margin: 5px 0;
-      }
-
-      a {
-        color: #2563eb;
-        text-decoration: none;
+        line-height: 1.2;
       }
 
       .role {
+        margin: 2px 0 8px;
+        font-size: 15px;
         font-weight: 600;
         color: #374151;
-        margin-top: 2px;
       }
 
-      .contact-line {
+      .contact {
+        margin: 0;
         color: #4b5563;
-        font-size: 14px;
-        margin-bottom: 2px;
+        font-size: 13px;
       }
 
-      .contact-links {
-        font-size: 14px;
+      .contact span {
+        white-space: nowrap;
       }
 
-      .contact-links a:not(:first-child)::before {
-        content: "·";
+      .contact span + span::before {
+        content: "|";
         margin: 0 8px;
         color: #9ca3af;
       }
 
-      .muted {
-        color: #6b7280;
+      a {
+        color: #1d4ed8;
+        text-decoration: none;
       }
 
-      .skills-list {
-        display: inline-grid;
-        grid-template-columns: auto auto;
-        gap: 8px 20px;
-        margin: 6px 0;
-        text-align: left;
+      h2 {
+        margin: 20px 0 8px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #d1d5db;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #111827;
       }
 
-      .skills-list dt {
-        font-weight: 700;
-        color: #1f2937;
-        text-align: right;
+      p {
+        margin: 4px 0;
       }
 
-      .skills-list dd {
-        margin: 0;
-        color: #374151;
+      .entry + .entry {
+        margin-top: 12px;
       }
 
-      .job-header,
-      .project-header {
+      .entry-head {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
       }
 
-      .job-header .dates,
-      .project-header .stack {
-        color: #6b7280;
-        font-size: 13.5px;
+      h3 {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .meta {
+        color: #4b5563;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .sub {
+        margin: 1px 0 4px;
+        color: #374151;
         font-style: italic;
       }
 
-      hr {
-        border: none;
-        border-top: 1px solid #e5e7eb;
-        margin: 24px 0;
+      ul {
+        margin: 4px 0 0;
+        padding-left: 18px;
       }
 
-      @media (max-width: 520px) {
-        .skills-list {
-          display: block;
-          text-align: center;
-        }
-        .skills-list dt {
-          text-align: center;
-          margin-top: 10px;
-        }
+      li {
+        margin: 2px 0;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 3px 14px;
+        margin: 0;
+      }
+
+      .skills dt {
+        font-weight: 700;
+      }
+
+      .skills dd {
+        margin: 0;
+      }
+
+      @media (max-width: 560px) {
+        body { padding: 0; }
+        main { padding: 24px 18px; border-radius: 0; }
+        .entry-head { flex-direction: column; gap: 0; }
+        .skills { grid-template-columns: 1fr; }
+        .skills dd { margin-bottom: 6px; }
       }
 
       @page {
@@ -155,135 +148,130 @@
       }
 
       @media print {
-        body {
-          background: #ffffff;
-          padding: 0;
-        }
-        main {
-          box-shadow: none;
-          padding: 0;
-          max-width: none;
-        }
-        h2 {
-          break-after: avoid;
-        }
-        li,
-        .skills-list div {
-          break-inside: avoid;
-        }
+        body { background: #ffffff; padding: 0; }
+        main { box-shadow: none; padding: 0; max-width: none; border-radius: 0; }
+        h2 { break-after: avoid; }
+        .entry, li { break-inside: avoid; }
       }
     </style>
   </head>
   <body>
     <main>
-      <h1>ALIF FARHAN</h1>
-      <p class="role">Frontend Developer | Software Engineer</p>
-      <p class="contact-line">Jakarta, Indonesia</p>
-      <p class="contact-links">
-        <a href="mailto:aliffaehan111@gmail.com">aliffaehan111@gmail.com</a>
-        <a href="https://github.com/alippps" target="_blank" rel="noreferrer">github.com/alippps</a>
-        <a href="https://linkedin.com/in/alif-Farhan" target="_blank" rel="noreferrer">linkedin.com/in/alif-Farhan</a>
-      </p>
+      <header>
+        <h1>ALIF FARHAN</h1>
+        <p class="role">Frontend Developer | Software Engineer</p>
+        <p class="contact">
+          <span>Jakarta, Indonesia</span>
+          <span><a href="mailto:aliffaehan111@gmail.com">aliffaehan111@gmail.com</a></span>
+          <span><a href="https://alffar.vercel.app">alffar.vercel.app</a></span>
+          <span><a href="https://github.com/alippps">github.com/alippps</a></span>
+          <span><a href="https://www.linkedin.com/in/alffar/">linkedin.com/in/alffar</a></span>
+        </p>
+      </header>
 
       <h2>Professional Summary</h2>
       <p>
-        Frontend Developer with experience building enterprise web applications using Angular, JavaScript,
-        TypeScript, PHP, and PostgreSQL. Experienced in developing internal business systems, integrating REST
-        APIs, creating reports using BIRT, and optimizing SQL queries. Passionate about writing clean,
-        maintainable code and continuously improving application performance and user experience.
+        Frontend Developer with 2+ years of experience building enterprise web applications using Angular,
+        TypeScript, JavaScript, PHP, and PostgreSQL. Experienced in developing internal business systems,
+        integrating REST APIs, creating reports with BIRT, and optimizing SQL queries. Focused on clean,
+        maintainable code and on improving application performance and user experience.
       </p>
-
-      <h2>Technical Skills</h2>
-      <dl class="skills-list">
-        <dt>Languages</dt>
-        <dd>JavaScript, TypeScript, PHP, SQL</dd>
-
-        <dt>Frontend</dt>
-        <dd>Angular, React, HTML5, CSS3, Bootstrap, Tailwind CSS</dd>
-
-        <dt>Backend</dt>
-        <dd>Laravel, CodeIgniter, REST API, GO</dd>
-
-        <dt>Database</dt>
-        <dd>PostgreSQL, MySQL</dd>
-
-        <dt>Tools</dt>
-        <dd>Git, GitHub, DBeaver, Postman, VS Code, Docker</dd>
-      </dl>
 
       <h2>Professional Experience</h2>
-      <div class="job-header">
-        <h3>Software Developer</h3>
-        <span class="dates">June 2024 – Present</span>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Software Developer</h3>
+          <span class="meta">Jun 2024 – Present</span>
+        </div>
+        <p class="sub">PT Rofasys Mitra Prima · Jakarta</p>
+        <ul>
+          <li>Developed and maintained enterprise web applications using Angular and TypeScript.</li>
+          <li>Built responsive user interfaces based on business requirements.</li>
+          <li>Integrated frontend applications with REST APIs.</li>
+          <li>Wrote and optimized PostgreSQL queries for reporting and operational features.</li>
+          <li>Developed and maintained BIRT reports for internal business processes.</li>
+          <li>Fixed production issues and collaborated with backend developers and QA teams.</li>
+          <li>Participated in feature implementation, debugging, and system enhancements.</li>
+        </ul>
       </div>
-      <p class="muted">[Company Name - PT Rofasys Mitra Prima]</p>
-      <ul>
-        <li>Developed and maintained enterprise web applications using Angular and TypeScript.</li>
-        <li>Built responsive user interfaces based on business requirements.</li>
-        <li>Integrated frontend applications with REST APIs.</li>
-        <li>Wrote and optimized PostgreSQL queries for reporting and operational features.</li>
-        <li>Developed and maintained BIRT reports for internal business processes.</li>
-        <li>Fixed production issues and collaborated with backend developers and QA teams.</li>
-        <li>Participated in feature implementation, debugging, and system enhancements.</li>
-      </ul>
+
+      <h2>Technical Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt>
+        <dd>JavaScript, TypeScript, PHP, SQL, Go</dd>
+        <dt>Frontend</dt>
+        <dd>Angular, React, HTML5, CSS3, Bootstrap, Tailwind CSS</dd>
+        <dt>Backend</dt>
+        <dd>Laravel, CodeIgniter, REST API</dd>
+        <dt>Database</dt>
+        <dd>PostgreSQL, MySQL</dd>
+        <dt>Reporting</dt>
+        <dd>BIRT</dd>
+        <dt>Tools</dt>
+        <dd>Git, GitHub, Docker, DBeaver, Postman, VS Code</dd>
+      </dl>
 
       <h2>Projects</h2>
-
-      <div class="project-header">
-        <h3>Marketplace Web Application</h3>
-        <span class="stack">Laravel • React • PostgreSQL</span>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Marketplace Web Application</h3>
+          <span class="meta">Laravel · React · PostgreSQL</span>
+        </div>
+        <ul>
+          <li>Built a marketplace application with authentication, shopping cart, product management, and order management.</li>
+          <li>Designed the relational database schema and implemented REST APIs.</li>
+          <li>Developed a responsive frontend using React.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Built a marketplace application with authentication, shopping cart, product management, and order management.</li>
-        <li>Designed relational database schema and implemented REST APIs.</li>
-        <li>Developed responsive frontend using React.</li>
-      </ul>
-
-      <div class="project-header">
-        <h3>Portfolio Website</h3>
-        <span class="stack">React • Vite • CSS Modules</span>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Portfolio Website</h3>
+          <span class="meta">React · Vite · Supabase</span>
+        </div>
+        <ul>
+          <li>Designed and developed a personal portfolio website with project case studies and a realtime guestbook.</li>
+          <li>Implemented responsive layouts and optimized performance.</li>
+          <li>Deployed the application for public access at alffar.vercel.app.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Designed and developed a personal portfolio website.</li>
-        <li>Implemented responsive layouts and optimized performance.</li>
-        <li>Deployed the application for public access.</li>
-      </ul>
-
-      <div class="project-header">
-        <h3>MBTI Personality Web Application</h3>
-        <span class="stack">React • Flask</span>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>MBTI Personality Web Application</h3>
+          <span class="meta">React · Flask</span>
+        </div>
+        <ul>
+          <li>Built a web application for MBTI personality prediction.</li>
+          <li>Connected the frontend with the backend using REST APIs.</li>
+          <li>Implemented form validation and API integration.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Built a web application for MBTI personality prediction.</li>
-        <li>Connected frontend with backend using REST APIs.</li>
-        <li>Implemented form validation and API integration.</li>
-      </ul>
 
       <h2>Education</h2>
-      <p>
-        <strong>Bachelor's Degree — Software Engineering / Rekayasa Perangkat Lunak </strong><br />
-        [SMKS Prestasi Prima Jakarta]<br />
-        Graduation: [June 2024]
-      </p>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Bachelor's Degree in Information Systems (in progress)</h3>
+          <span class="meta">Expected 2029</span>
+        </div>
+        <p class="sub">Universitas Bina Sarana Informatika</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Vocational High School (SMK), Software Engineering (RPL)</h3>
+          <span class="meta">Graduated Jun 2024</span>
+        </div>
+        <p class="sub">SMKS Prestasi Prima Jakarta</p>
+      </div>
 
-      <p>
-        <strong>Bachelor's Degree — Information Systems </strong><br />
-        [Universitas Bina Sarana Informatika]<br />
-        Expected Graduation: [2029]
-      </p>
-
-      <h2>Certifications</h2>
+      <h2>Awards &amp; Certifications</h2>
       <ul>
-        <li>Lembaga Sertifikasi Profesi (LSP) — National Professional Certification Agency, Jun 2024</li>
-        <li>Angular Course — Course completion certificate, Mar 2025</li>
-        <li>Colloquium — Career Exploration 2026 x Coding Studio, Jun 2026asdasdasdasdasdasdas
-          asDDDDDDDDDDDDDDDDDDDDDDDDDasdfsdfsd
-        </li>
-        <li>1st Place — Innovation & Development theme "UMKM" Competition August 2026</li>
+        <li><strong>1st Place, Innovation &amp; Development Competition</strong> (theme: UMKM), Universitas Atma Jaya Yogyakarta, Aug 2026</li>
+        <li><strong>Lembaga Sertifikasi Profesi (LSP)</strong>, National Professional Certification Agency, Jun 2024</li>
+        <li><strong>Angular Course</strong>, course completion certificate, Mar 2025</li>
+        <li><strong>Colloquium</strong>, Career Exploration 2026 x Coding Studio, Jun 2026</li>
       </ul>
 
       <h2>Languages</h2>
-      <p>Indonesian (Native) • English (Professional Working Proficiency)</p>
+      <p>Indonesian (Native) · English (Professional Working Proficiency)</p>
     </main>
   </body>
 </html>

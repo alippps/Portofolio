@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { FaEnvelope, FaFileDownload, FaPaperPlane } from "react-icons/fa";
+import { FaEnvelope, FaFileDownload, FaPaperPlane, FaRegEnvelope } from "react-icons/fa";
 import s from "../styles/Sections.module.css";
 import { contact, socials } from "../data/portfolioData";
-import { supabase } from "../lib/supabase";
+import { getSupabase } from "../lib/supabase";
 
 function timeAgo(ts) {
   const diff = (Date.now() - new Date(ts).getTime()) / 1000;
@@ -25,25 +25,44 @@ export default function Contact() {
   const seenCount = useRef(null);
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      const { data, error: fetchError } = await supabase
+    let cancelled = false;
+    let client = null;
+    let channel = null;
+
+    (async () => {
+      try {
+        client = await getSupabase();
+      } catch {
+        client = null;
+      }
+      if (cancelled) return;
+      if (!client) {
+        setLoadFailed(true);
+        setLoading(false);
+        return;
+      }
+
+      const { data, error: fetchError } = await client
         .from("comments")
         .select("*")
         .order("created_at", { ascending: true });
+      if (cancelled) return;
       if (fetchError) setLoadFailed(true);
       else if (data) setMessages(data);
       setLoading(false);
+
+      channel = client
+        .channel("comments-realtime")
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "comments" }, (payload) => {
+          setMessages((prev) => (prev.some((m) => m.id === payload.new.id) ? prev : [...prev, payload.new]));
+        })
+        .subscribe();
+    })();
+
+    return () => {
+      cancelled = true;
+      if (client && channel) client.removeChannel(channel);
     };
-    fetchMessages();
-
-    const channel = supabase
-      .channel("comments-realtime")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "comments" }, (payload) => {
-        setMessages((prev) => (prev.some((m) => m.id === payload.new.id) ? prev : [...prev, payload.new]));
-      })
-      .subscribe();
-
-    return () => supabase.removeChannel(channel);
   }, []);
 
   useEffect(() => {
@@ -74,7 +93,14 @@ export default function Contact() {
     setSending(true);
     setError("");
 
-    const { data, error: insertError } = await supabase
+    const client = await getSupabase().catch(() => null);
+    if (!client) {
+      setSending(false);
+      setError("Messages are unavailable right now. Please reach out by email.");
+      return;
+    }
+
+    const { data, error: insertError } = await client
       .from("comments")
       .insert({
         name: name.trim() || "Anonymous",
@@ -107,6 +133,7 @@ export default function Contact() {
   };
 
   const contactLinks = [
+    { icon: <FaRegEnvelope />, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
     { icon: <FaFileDownload />, label: "Resume", value: "Download CV", href: contact.cv, download: "Alif-Farhan-CV.pdf" },
     ...socials.map(({ icon, label, href }) => ({ icon, label, value: "View profile", href })),
   ];
@@ -146,7 +173,7 @@ export default function Contact() {
           <div className={s.inbox}>
             <div className={s.inboxHeader}>
               <FaEnvelope size={13} />
-              <span>Messages</span>
+              <span>Public guestbook</span>
               {messages.length > 0 && (
                 <span className={s.inboxCount}>{messages.length}</span>
               )}
@@ -156,7 +183,7 @@ export default function Contact() {
               {loading ? (
                 <p className={s.inboxEmpty}>Loading...</p>
               ) : loadFailed ? (
-                <p className={s.inboxEmpty}>Could not load messages right now.</p>
+                <p className={s.inboxEmpty}>Could not load messages right now. Email works too!</p>
               ) : messages.length === 0 ? (
                 <p className={s.inboxEmpty}>No messages yet. Say hi below!</p>
               ) : (

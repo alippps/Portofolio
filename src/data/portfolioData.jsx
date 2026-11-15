@@ -1,12 +1,13 @@
-import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaCode, FaWhatsapp, FaFileCode,FaRedhat  } from "react-icons/fa";
-import { FaFilm, FaRegAddressCard,FaGolang  } from "react-icons/fa6";
-import { MdAttachMoney,MdOutlinePointOfSale  } from "react-icons/md";
+import { FaAngular, FaGithub, FaInstagram, FaLinkedin, FaRegNewspaper, FaCode, FaWhatsapp, FaFileCode, FaRedhat } from "react-icons/fa";
+import { FaFilm, FaRegAddressCard, FaGolang } from "react-icons/fa6";
+import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
-import { IoNewspaper,IoTrophy } from "react-icons/io5";
+import { IoNewspaper, IoTrophy } from "react-icons/io5";
 import { AiOutlineKubernetes } from "react-icons/ai";
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
-  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython,SiApachetomcat,SiApachekafka 
+  SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython, SiApachetomcat, SiApachekafka,
+  SiPhp, SiLaravel,
 } from "react-icons/si";
 
 export const projects = [
@@ -18,76 +19,13 @@ export const projects = [
     impact: "Focused on clear event messaging, mobile layout, and fast loading.",
     tags: ["TypeScript", "CSS", "JavaScript"],
     liveLink: "https://coding-studio-landing-page.vercel.app/",
-    sourceLink: "https://github.com/alippps",
+    sourceLink: "https://github.com/alippps/Coding-Studio-Landing-Page",
     preview: "landing",
     image: "/project/studio-coding.webp",
     imageWidth: 1200,
     imageHeight: 571,
     features: ["Responsive hero section", "Event-focused call to action", "Clean section structure"],
     challenge: "Keeping the layout polished across mobile and desktop while preserving simple content flow.",
-  },
-  {
-    icon: <MdAttachMoney size={34} color="#6ee7b7" />,
-    title: "Finance App",
-    subtitle: "Income and expense tracker",
-    desc: "A finance tracker for recording income, expenses, and daily balance changes.",
-    impact: "Designed to make personal cash flow easier to review at a glance.",
-    tags: ["JavaScript", "HTML", "CSS"],
-    liveLink: "https://finannce-app-three.vercel.app/",
-    sourceLink: "https://github.com/alippps",
-    image: "/project/finance-app.webp",
-    imageWidth: 1200,
-    imageHeight: 570,
-    preview: "finance",
-    features: ["Transaction input", "Income and expense summary", "Simple dashboard view"],
-    challenge: "Making the finance summary readable without overwhelming the main interaction.",
-  },
-  {
-    icon: <GiCoffeeCup size={34} color="#f8fafc" />,
-    title: "Coffee Shop",
-    subtitle: "Cafe website",
-    desc: "A modern coffee shop website with product highlights and a warm browsing flow.",
-    impact: "Built to present menu items and brand personality in a concise single-page experience.",
-    tags: ["React", "CSS", "JavaScript"],
-    liveLink: "https://come-coffe.vercel.app/",
-    sourceLink: "https://github.com/alippps",
-    image: "/project/come-coffe.webp",
-    imageWidth: 1200,
-    imageHeight: 573,
-    preview: "coffee",
-    features: ["Product showcase", "Responsive menu layout", "Strong visual hierarchy"],
-    challenge: "Balancing a cozy brand feel with a clean and performant frontend.",
-  },
-  {
-    icon: <FaFilm size={34} color="#93c5fd" />,
-    title: "Al Movie",
-    subtitle: "Movie search app",
-    desc: "A mini movie app using OMDB data to search and display film information.",
-    impact: "Turns raw movie data into a lightweight browsing experience.",
-    tags: ["JavaScript", "CSS", "HTML"],
-    liveLink: "https://mini-movie-beryl.vercel.app/",
-    sourceLink: "https://github.com/alippps",
-    image: "/project/al-cinema.webp",
-    imageWidth: 1200,
-    imageHeight: 571,
-    preview: "movie",
-    features: ["Movie search", "Film detail display", "API-driven content"],
-    challenge: "Handling API data states while keeping the interface simple for quick lookup.",
-  },
-
-  {
-    icon: <FaWhatsapp size={34} color="#25D366" />,
-    title: "WhatsApp Clone",
-    subtitle: "Real-time chat application",
-    desc: "A full-stack chat application replicating core WhatsApp features with real-time messaging powered by WebSockets.",
-    impact: "Demonstrates full-stack capability with live user presence, group chat rooms, and persistent message history.",
-    tags: ["React", "Socket.io", "Node.js", "Express"],
-    liveLink: "https://github.com/alippps/WhatsappClone",
-    sourceLink: "https://github.com/alippps/WhatsappClone",
-    preview: "whatsapp",
-    image: "",
-    features: ["Real-time messaging via Socket.io", "Multiple chat rooms", "Online/offline user status", "Persistent message history"],
-    challenge: "Synchronizing WebSocket connection state across multiple clients and handling disconnects cleanly without message loss.",
   },
   {
     icon: <MdAttachMoney size={34} color="#34d399" />,
@@ -105,16 +43,63 @@ export const projects = [
     features: ["User login and authentication", "Income and expense tracking", "Budget and balance dashboard"],
     challenge: "Redesigning the v1 layout into a more structured dashboard while adding auth without overcomplicating the flow.",
   },
+  {
+    icon: <GiCoffeeCup size={34} color="#f8fafc" />,
+    title: "Coffee Shop",
+    subtitle: "Cafe website",
+    desc: "A modern coffee shop website with product highlights and a warm browsing flow.",
+    impact: "Built to present menu items and brand personality in a concise single-page experience.",
+    tags: ["React", "CSS", "JavaScript"],
+    liveLink: "https://come-coffe.vercel.app/",
+    sourceLink: "https://github.com/alippps/ComeCoffe",
+    image: "/project/come-coffe.webp",
+    imageWidth: 1200,
+    imageHeight: 573,
+    preview: "coffee",
+    features: ["Product showcase", "Responsive menu layout", "Strong visual hierarchy"],
+    challenge: "Balancing a cozy brand feel with a clean and performant frontend.",
+  },
+  {
+    icon: <FaFilm size={34} color="#93c5fd" />,
+    title: "Al Movie",
+    subtitle: "Movie search app",
+    desc: "A mini movie app using OMDB data to search and display film information.",
+    impact: "Turns raw movie data into a lightweight browsing experience.",
+    tags: ["JavaScript", "CSS", "HTML"],
+    liveLink: "https://mini-movie-beryl.vercel.app/",
+    sourceLink: "https://github.com/alippps/Mini-Movie",
+    image: "/project/al-cinema.webp",
+    imageWidth: 1200,
+    imageHeight: 571,
+    preview: "movie",
+    features: ["Movie search", "Film detail display", "API-driven content"],
+    challenge: "Handling API data states while keeping the interface simple for quick lookup.",
+  },
+
+  {
+    icon: <FaWhatsapp size={34} color="#25D366" />,
+    title: "WhatsApp Clone",
+    subtitle: "Real-time chat application",
+    desc: "A full-stack chat application replicating core WhatsApp features with real-time messaging powered by WebSockets.",
+    impact: "Demonstrates full-stack capability with live user presence, group chat rooms, and persistent message history.",
+    tags: ["React", "Socket.io", "Node.js", "Express"],
+    liveLink: "", // not deployed - the card shows the source link only
+    sourceLink: "https://github.com/alippps/WhatsappClone",
+    preview: "whatsapp",
+    image: "",
+    features: ["Real-time messaging via Socket.io", "Multiple chat rooms", "Online/offline user status", "Persistent message history"],
+    challenge: "Synchronizing WebSocket connection state across multiple clients and handling disconnects cleanly without message loss.",
+  },
 
   // { 
-  //   icon: <MdOutlinePointOfSale size={34} color="#34d399" />,
+  //   icon: <MdOutlinePointOfSale size={34} color="#34d399" />, // re-add the import from "react-icons/md"
   //   title: "To Do POS",
   //   subtitle: "One POS system for many small businesses",
   //   desc: "A multi-tenant point-of-sale system for food & beverage MSMEs. Customers scan a QR code at their table and order from their own phone — no app download, no account. Orders land on the cashier screen in real time, move through a kitchen stage, and close when paid.",
   //   impact: "Removes paper tickets and counter queues, while letting several businesses share one deployment instead of paying for a system each.",
   //   tags: ["Next.js", "React", "Supabase", "PostgreSQL", "Tailwind CSS"],
   //   liveLink: "https://to-do-pos.vercel.app",
-  //   sourceLink: "https://github.com/alippps/To-doCoffe",
+  //   sourceLink: "https://github.com/alippps/To-do-POS",
   //   image: "/project/todo-pos.webp",
   //   imageWidth: 984,
   //   imageHeight: 556,
@@ -158,48 +143,64 @@ export const certificates = [
 
   {
     icon: <IoTrophy size={25} color="#efdecd" />,
-    title: "1st Place,Innovation & Development Competition",
+    title: "1st Place, Innovation & Development Competition",
     issuer: "Universitas Atma Jaya Yogyakarta",
-    date: "August 2026",
+    date: "Aug 2026",
     credentialUrl: "",
   }
 ];
 
 export const skills = [
-      { name: "JavaScript",  icon: <SiJavascript               size={22} color="#f7df1e" /> },
-      { name: "TypeScript",  icon: <SiTypescript               size={22} color="#3178c6" /> },
-      { name: "React",       icon: <SiReact                    size={22} color="#61dafb" /> },
-      { name: "Next.js",     icon: <SiNextdotjs                size={22} color="#ffffff" /> },
-      { name: "Node.js",     icon: <SiNodedotjs                size={22} color="#43a047" /> },
-      { name: "Express",     icon: <SiExpress                  size={22} color="#aaaaaa" /> },
-      { name: "PostgreSQL",  icon: <SiPostgresql               size={22} color="#4169e1" /> },
-      { name: "TailwindCSS", icon: <SiTailwindcss              size={22} color="#06b6d4" /> },
-      { name: "Docker",      icon: <SiDocker                   size={22} color="#2496ed" /> },
-      { name: "Git",         icon: <SiGit                      size={22} color="#f05032" /> },
-      { name: "Figma",       icon: <SiFigma                    size={22} color="#f24e1e" /> },
-      { name: "Python",      icon: <SiPython                   size={22} color="#ffd43b" /> },
-      { name: "REST API",    icon: <FaCode                     size={22} color="#22d3ee" /> },
-      { name: "BIRT",        icon: <FaFileCode                 size={22} color="#22d3ee" /> },
-      { name: "Tomcat",      icon: <SiApachetomcat             size={22} color="#65DCD5" /> },
-      { name: "GOLang",      icon: <FaGolang                   size={22} color="#3368A0" /> },
-      { name: "RedHat",      icon: <FaRedhat                   size={22} color="#8B1E2D" /> },
-      { name: "Kubernetes",  icon: <AiOutlineKubernetes        size={22} color="#2196F3" /> },
-      { name: "Kafka",       icon:  <SiApachekafka             size={22} color="#000000" /> },
+  { name: "Angular",     icon: <FaAngular           size={22} color="#dd0031" /> },
+  { name: "TypeScript",  icon: <SiTypescript        size={22} color="#3178c6" /> },
+  { name: "JavaScript",  icon: <SiJavascript        size={22} color="#f7df1e" /> },
+  { name: "React",       icon: <SiReact             size={22} color="#61dafb" /> },
+  { name: "Next.js",     icon: <SiNextdotjs         size={22} color="#ffffff" /> },
+  { name: "PHP",         icon: <SiPhp               size={22} color="#8892bf" /> },
+  { name: "Laravel",     icon: <SiLaravel           size={22} color="#ff2d20" /> },
+  { name: "Node.js",     icon: <SiNodedotjs         size={22} color="#43a047" /> },
+  { name: "Express",     icon: <SiExpress           size={22} color="#aaaaaa" /> },
+  { name: "PostgreSQL",  icon: <SiPostgresql        size={22} color="#4169e1" /> },
+  { name: "REST API",    icon: <FaCode              size={22} color="#22d3ee" /> },
+  { name: "BIRT",        icon: <FaFileCode          size={22} color="#22d3ee" /> },
+  { name: "TailwindCSS", icon: <SiTailwindcss       size={22} color="#06b6d4" /> },
+  { name: "Go",          icon: <FaGolang            size={22} color="#00add8" /> },
+  { name: "Docker",      icon: <SiDocker            size={22} color="#2496ed" /> },
+  { name: "Kubernetes",  icon: <AiOutlineKubernetes size={22} color="#326ce5" /> },
+  { name: "Kafka",       icon: <SiApachekafka       size={22} color="#e5e7eb" /> },
+  { name: "Tomcat",      icon: <SiApachetomcat      size={22} color="#f8dc75" /> },
+  { name: "Red Hat",     icon: <FaRedhat            size={22} color="#ee0000" /> },
+  { name: "Git",         icon: <SiGit               size={22} color="#f05032" /> },
+  { name: "Figma",       icon: <SiFigma             size={22} color="#f24e1e" /> },
+  { name: "Python",      icon: <SiPython            size={22} color="#ffd43b" /> },
+];
 
-  
+// Work history shown in the About section. Keep in sync with the CV.
+export const experience = [
+  {
+    role: "Software Developer",
+    company: "PT Rofasys Mitra Prima",
+    period: "Jun 2024 – Present",
+    points: [
+      "Build and maintain enterprise web applications with Angular and TypeScript.",
+      "Integrate frontends with REST APIs and write optimized PostgreSQL queries for reporting.",
+      "Develop BIRT reports for internal business processes and fix production issues with backend and QA teams.",
+    ],
+    tags: ["Angular", "TypeScript", "PostgreSQL", "BIRT", "REST API"],
+  },
 ];
 
 export const stats = [
   { number: "2+", description: "Years of Experience" },
   { number: "15+", description: "Projects Completed" },
-  { number: "4", description: "Featured Case Studies" },
+  { number: String(projects.length), description: "Featured Projects" },
 ];
 
 export const navLinks = ["Home", "About", "Project", "Certificate", "Contact"];
 
 export const socials = [
   { icon: <FaGithub size={15} />, label: "GitHub", href: "https://github.com/alippps" },
-  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://linkedin.com" },
+  { icon: <FaLinkedin size={15} />, label: "LinkedIn", href: "https://www.linkedin.com/in/alffar/" },
   { icon: <FaInstagram size={15} />, label: "Instagram", href: "https://www.instagram.com/aliffarrhan/" },
 ];
 
@@ -209,6 +210,7 @@ export const contact = {
   // --no-pdf-header-footer is not optional: without it Chrome stamps the
   // source file:// path onto every page of a CV strangers will download.
   cv: "/alif-farhan-cv.pdf",
+  email: "aliffaehan111@gmail.com",
 };
 
 export default projects;

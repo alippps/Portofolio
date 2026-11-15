@@ -29,15 +29,16 @@ export default function Home() {
     <section id="home" className={styles.home}>
       <div className={styles.homeGrid}>
         <div>
-          <p className={styles.homeRole}>Web Developer</p>
+          <p className={styles.homeRole}>Frontend Developer · Software Engineer</p>
           <p className={styles.homeGreeting}>
             <span aria-hidden="true">👋</span> Hi, I&apos;m
           </p>
           <h1 className={styles.homeH1}>ALIF</h1>
           <p className={styles.homeSub}>
-            I build responsive web apps, landing pages, and dashboards with React,
-            with a focus on clean UI and practical performance. I work fluidly
-            with AI as a collaborative tool.
+            I build enterprise web apps with Angular and TypeScript at work, and
+            responsive landing pages and dashboards with React on the side, with a
+            focus on clean UI and practical performance. I work fluidly with AI as
+            a collaborative tool.
           </p>
           <div className={styles.statsRow}>
             <span>2+ yrs experience</span>
