@@ -2,11 +2,16 @@
   background: var(--bg2);
 }
 
+/* Bio and stats share the row; stats sit level with the bio's bottom edge */
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 5rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: end;
+}
+
+.subLabel {
+  margin-bottom: 1rem;
 }
 
 .aboutText {
@@ -21,16 +26,20 @@
 
 .statsRow {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .statCard {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem;
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 128px;
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
@@ -42,24 +51,25 @@
 
 .statNum {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2.2rem;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.1;
   color: var(--text);
 }
 
 .statDesc {
   color: var(--muted);
-  font-size: 0.82rem;
-  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-top: 0.4rem;
 }
 
 .experience {
-  margin-top: 4rem;
+  margin-top: 4.5rem;
 }
 
 .timeline {
   list-style: none;
-  margin-top: 1rem;
   display: grid;
   gap: 1rem;
 }
@@ -68,7 +78,7 @@
   background: var(--card);
   border: 1px solid var(--border);
   border-left: 2px solid var(--accent);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 1.5rem 1.75rem;
 }
 
@@ -129,11 +139,18 @@
 }
 
 .techStack {
-  margin-top: 4rem;
+  margin-top: 4.5rem;
 }
 
-@media (max-width: 768px) {
-  .aboutGrid { grid-template-columns: 1fr; gap: 3rem; }
-  .statsRow { grid-template-columns: 1fr 1fr; }
+@media (max-width: 900px) {
+  .aboutGrid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+}
+
+/* Three stats stay on one row on phones: no orphan card */
+@media (max-width: 640px) {
+  .statsRow { gap: 0.6rem; }
+  .statCard { padding: 1.1rem 0.5rem; min-height: 108px; }
+  .statDesc { font-size: 0.72rem; }
   .job { padding: 1.25rem; }
+  .experience, .techStack { margin-top: 3.5rem; }
 }

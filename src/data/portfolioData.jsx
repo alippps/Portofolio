@@ -4,6 +4,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { GiCoffeeCup } from "react-icons/gi";
 import { IoNewspaper, IoTrophy } from "react-icons/io5";
 import { AiOutlineKubernetes } from "react-icons/ai";
+import { PiCertificate } from "react-icons/pi";
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
   SiExpress, SiPostgresql, SiTailwindcss, SiDocker, SiGit, SiFigma, SiPython, SiApachetomcat, SiApachekafka,
@@ -116,6 +117,28 @@ export const projects = [
 ];
 
 export const certificates = [
+  // Newest first.
+  {
+    icon: <IoTrophy size={25} color="#efdecd" />,
+    title: "1st Place, Innovation & Development Competition",
+    issuer: "Universitas Atma Jaya Yogyakarta",
+    date: "Aug 2026",
+    credentialUrl: "",
+  },
+  {
+    icon: <IoNewspaper size={25} color="#efdecd" />,
+    title: "Colloquium",
+    issuer: "Career Exploration 2026 x Coding Studio",
+    date: "Jun 2026",
+    credentialUrl: "",
+  },
+  {
+    icon: <FaAngular size={25} color="#ef4444" />,
+    title: "Angular Course",
+    issuer: "Course completion certificate",
+    date: "Mar 2025",
+    credentialUrl: "",
+  },
   {
     icon: <FaRegNewspaper size={25} color="#93c5fd" />,
     title: "Lembaga Sertifikasi Profesi (LSP)",
@@ -126,28 +149,12 @@ export const certificates = [
     credentialUrl: "",
   },
   {
-    icon: <FaAngular size={25} color="#ef4444" />,
-    title: "Angular Course",
-    issuer: "Course completion certificate",
-    date: "Mar 2025",
+    icon: <PiCertificate size={25} color="#efdecd" />,
+    title: "Certificate of Competence",
+    issuer: "Universitas Amikom Yogyakarta",
+    date: "Feb 2024",
     credentialUrl: "",
   },
-
-  {
-    icon: <IoNewspaper size={25} color="#efdecd" />,
-    title: "Colloquium",
-    issuer: "Career Exploration 2026 x Coding Studio",
-    date: "Jun 2026",
-    credentialUrl: "",
-  },
-
-  {
-    icon: <IoTrophy size={25} color="#efdecd" />,
-    title: "1st Place, Innovation & Development Competition",
-    issuer: "Universitas Atma Jaya Yogyakarta",
-    date: "Aug 2026",
-    credentialUrl: "",
-  }
 ];
 
 export const skills = [
@@ -167,9 +174,9 @@ export const skills = [
   { name: "Go",          icon: <FaGolang            size={22} color="#00add8" /> },
   { name: "Docker",      icon: <SiDocker            size={22} color="#2496ed" /> },
   { name: "Kubernetes",  icon: <AiOutlineKubernetes size={22} color="#326ce5" /> },
-  { name: "Kafka",       icon: <SiApachekafka       size={22} color="#e5e7eb" /> },
+  // { name: "Kafka",       icon: <SiApachekafka       size={22} color="#e5e7eb" /> },
   { name: "Tomcat",      icon: <SiApachetomcat      size={22} color="#f8dc75" /> },
-  { name: "Red Hat",     icon: <FaRedhat            size={22} color="#ee0000" /> },
+  // { name: "Red Hat",     icon: <FaRedhat            size={22} color="#ee0000" /> },
   { name: "Git",         icon: <SiGit               size={22} color="#f05032" /> },
   { name: "Figma",       icon: <SiFigma             size={22} color="#f24e1e" /> },
   { name: "Python",      icon: <SiPython            size={22} color="#ffd43b" /> },
@@ -185,8 +192,9 @@ export const experience = [
       "Build and maintain enterprise web applications with Angular and TypeScript.",
       "Integrate frontends with REST APIs and write optimized PostgreSQL queries for reporting.",
       "Develop BIRT reports for internal business processes and fix production issues with backend and QA teams.",
+      "Troubleshoot Kubernetes and Tomcat deployments, including missing environment variables and resource quota errors.",
     ],
-    tags: ["Angular", "TypeScript", "PostgreSQL", "BIRT", "REST API"],
+    tags: ["Angular", "TypeScript", "PostgreSQL", "BIRT", "REST API", "Kubernetes", "Tomcat"],
   },
 ];
 

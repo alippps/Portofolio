@@ -77,7 +77,7 @@ export default function Contact() {
     if (messages.length <= seenCount.current) return;
     seenCount.current = messages.length;
 
-    // .inboxBody only scrolls once it overflows its 220px max-height. While
+    // .inboxBody only scrolls once its messages overflow its height. While
     // it is short, scrollIntoView walks up to the document and drags the whole
     // page instead, so scroll the container by hand when it can take it.
     const body = bottomRef.current?.parentElement;
@@ -132,108 +132,122 @@ export default function Contact() {
     setTimeout(() => setSent(false), 2500);
   };
 
-  const contactLinks = [
+  // Primary actions (email, CV) and social profiles get their own rows, so
+  // neither grid ever ends on a single orphaned card.
+  const primaryLinks = [
     { icon: <FaRegEnvelope />, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
     { icon: <FaFileDownload />, label: "Resume", value: "Download CV", href: contact.cv, download: "Alif-Farhan-CV.pdf" },
-    ...socials.map(({ icon, label, href }) => ({ icon, label, value: "View profile", href })),
   ];
 
   return (
     <section id="contact" className={s.contact}>
-      <div className={`${s.contactLayout} reveal`}>
-        <div className={s.contactLeft}>
+      <div className="container">
+        <div className="section-head reveal">
           <p className="section-label">Contact</p>
           <h2 className="section-title">Let's Work Together</h2>
-          <p className={s.contactDesc}>
-            Have a website, landing page, or dashboard idea? I am open to freelance
-            projects, collaborations, and frontend roles.
+          <p className="section-lead">
+            Have a website, landing page, or dashboard idea? I take on freelance
+            work on a per-project basis, from a single landing page to a full web app.
           </p>
-
-          <div className={s.contactList}>
-            {contactLinks.map(({ icon, label, value, href, download }) => (
-              <a
-                key={label}
-                href={href}
-                className={s.contactLink}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noreferrer" : undefined}
-                download={download}
-              >
-                <span className={s.contactIcon}>{icon}</span>
-                <span>
-                  <strong>{label}</strong>
-                  <small>{value}</small>
-                </span>
-              </a>
-            ))}
-          </div>
         </div>
 
-        <div className={s.contactRight}>
-          <div className={s.inbox}>
-            <div className={s.inboxHeader}>
-              <FaEnvelope size={13} />
-              <span>Public guestbook</span>
-              {messages.length > 0 && (
-                <span className={s.inboxCount}>{messages.length}</span>
-              )}
+        <div className={`${s.contactLayout} reveal`}>
+          <div className={s.contactLeft}>
+            <div className={s.contactList}>
+              {primaryLinks.map(({ icon, label, value, href, download }) => (
+                <a key={label} href={href} className={s.contactLink} download={download}>
+                  <span className={s.contactIcon}>{icon}</span>
+                  <span>
+                    <strong>{label}</strong>
+                    <small>{value}</small>
+                  </span>
+                </a>
+              ))}
             </div>
 
-            <div className={s.inboxBody}>
-              {loading ? (
-                <p className={s.inboxEmpty}>Loading...</p>
-              ) : loadFailed ? (
-                <p className={s.inboxEmpty}>Could not load messages right now. Email works too!</p>
-              ) : messages.length === 0 ? (
-                <p className={s.inboxEmpty}>No messages yet. Say hi below!</p>
-              ) : (
-                messages.map((m) => (
-                  <div key={m.id} className={s.msgBubble}>
-                    <div className={s.msgMeta}>
-                      <span className={s.msgName}>{m.name}</span>
-                      <span className={s.msgTime}>{timeAgo(m.created_at)}</span>
-                    </div>
-                    <p className={s.msgText}>{m.message}</p>
-                  </div>
-                ))
-              )}
-              <div ref={bottomRef} />
+            <p className={s.contactSubLabel}>Find me on</p>
+            <div className={s.socialList}>
+              {socials.map(({ icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  className={s.socialLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className={s.contactIcon}>{icon}</span>
+                  <strong>{label}</strong>
+                </a>
+              ))}
             </div>
           </div>
 
-          <form className={s.msgForm} onSubmit={handleSend}>
-            <input
-              className={s.msgInput}
-              type="text"
-              placeholder="Your name (optional)"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              maxLength={40}
-            />
-            <div className={s.msgTextareaWrap}>
-              <textarea
-                className={s.msgTextarea}
-                placeholder="Write a message..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                maxLength={300}
-                rows={3}
-              />
-              <button
-                type="submit"
-                className={`${s.msgSendBtn} ${sent ? s.sent : ""}`}
-                disabled={!message.trim() || sending}
-                aria-label="Send"
-              >
-                {sent ? "✓" : <FaPaperPlane size={14} />}
-              </button>
+          <div className={s.contactRight}>
+            <div className={s.inbox}>
+              <div className={s.inboxHeader}>
+                <FaEnvelope size={13} />
+                <span>Public guestbook</span>
+                {messages.length > 0 && (
+                  <span className={s.inboxCount}>{messages.length}</span>
+                )}
+              </div>
+
+              <div className={s.inboxBody}>
+                {loading ? (
+                  <p className={s.inboxEmpty}>Loading...</p>
+                ) : loadFailed ? (
+                  <p className={s.inboxEmpty}>Could not load messages right now. Email works too!</p>
+                ) : messages.length === 0 ? (
+                  <p className={s.inboxEmpty}>No messages yet. Say hi below!</p>
+                ) : (
+                  messages.map((m) => (
+                    <div key={m.id} className={s.msgBubble}>
+                      <div className={s.msgMeta}>
+                        <span className={s.msgName}>{m.name}</span>
+                        <span className={s.msgTime}>{timeAgo(m.created_at)}</span>
+                      </div>
+                      <p className={s.msgText}>{m.message}</p>
+                    </div>
+                  ))
+                )}
+                <div ref={bottomRef} />
+              </div>
             </div>
-            {error && (
-              <p className={s.msgError} role="alert">
-                {error}
-              </p>
-            )}
-          </form>
+
+            <form className={s.msgForm} onSubmit={handleSend}>
+              <input
+                className={s.msgInput}
+                type="text"
+                placeholder="Your name (optional)"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                maxLength={40}
+              />
+              <div className={s.msgTextareaWrap}>
+                <textarea
+                  className={s.msgTextarea}
+                  placeholder="Write a message..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  maxLength={300}
+                  rows={3}
+                />
+                <button
+                  type="submit"
+                  className={`${s.msgSendBtn} ${sent ? s.sent : ""}`}
+                  disabled={!message.trim() || sending}
+                  aria-label="Send"
+                >
+                  {sent ? "✓" : <FaPaperPlane size={14} />}
+                </button>
+              </div>
+              {error && (
+                <p className={s.msgError} role="alert">
+                  {error}
+                </p>
+              )}
+            </form>
+          </div>
         </div>
       </div>
     </section>

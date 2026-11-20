@@ -1,11 +1,22 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
-const SEGMENTS = ["< ", "A", "L", "T", "E", " >"];
+const SEGMENTS = ["< ", "A", "L", "F", "F", "A", "R", " >"];
+const FULL_TEXT = SEGMENTS.join("");
 const TYPE_DELAY   = 200;
 const DELETE_DELAY = 120;
 const PAUSE_FULL   = 1800;
 const PAUSE_EMPTY  = 600;
+
+const HIGHLIGHTS = ["2+ yrs experience", "15+ projects shipped"];
+
+// Mirrors the Tech Stack section, grouped by layer: what I use at work
+// (Angular + Go + PostgreSQL, BIRT on Tomcat, deployed on Kubernetes) and on the side.
+const STACK = [
+  ["frontend", ["Angular", "TypeScript", "React"]],
+  ["backend", ["Go", "Node.js", "PostgreSQL"]],
+  ["devops", ["Docker", "Kubernetes", "Tomcat"]],
+];
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -27,8 +38,8 @@ export default function Home() {
 
   return (
     <section id="home" className={styles.home}>
-      <div className={styles.homeGrid}>
-        <div>
+      <div className={`container ${styles.homeGrid}`}>
+        <div className={styles.homeCopy}>
           <p className={styles.homeRole}>Frontend Developer · Software Engineer</p>
           <p className={styles.homeGreeting}>
             <span aria-hidden="true">👋</span> Hi, I&apos;m
@@ -40,29 +51,67 @@ export default function Home() {
             focus on clean UI and practical performance. I work fluidly with AI as
             a collaborative tool.
           </p>
-          <div className={styles.statsRow}>
-            <span>2+ yrs experience</span>
-            <span className={styles.statsDot} />
-            <span>15+ projects shipped</span>
-            <span className={styles.statsDot} />
-            <span className={styles.statsOpen}>
+
+          <ul className={styles.highlights}>
+            {HIGHLIGHTS.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+            <li className={styles.openToWork}>
               <span className={styles.statusDot} />
-              Open to work
-            </span>
-          </div>
+              Available for freelance
+            </li>
+          </ul>
+
           <div className={styles.btnRow}>
             <a href="#project" className="btn btn-primary">View Projects</a>
             <a href="#contact" className="btn btn-outline">Get in Touch</a>
           </div>
         </div>
 
-        <div className={styles.homeVisual}>
-          <div className={styles.avatarWrap}>
+        {/* Decorative: everything here is already said in the copy on the left */}
+        <div className={styles.homeVisual} aria-hidden="true">
+          <div className={styles.codeCard}>
+            <div className={styles.codeChrome}>
+              <span />
+              <span />
+              <span />
+              <em>alif.ts</em>
+            </div>
+
+            <pre className={styles.codeBody}>
+              <code>
+                <span className={styles.tKey}>const</span> dev = {"{"}{"\n"}
+                {"  "}name: <span className={styles.tStr}>"Alif Farhan"</span>,{"\n"}
+                {"  "}role: <span className={styles.tStr}>"Frontend Developer"</span>,{"\n"}
+                {"  "}stack: {"{"}{"\n"}
+                {STACK.map(([layer, items]) => (
+                  <span key={layer}>
+                    {"    "}{layer}: [
+                    {items.map((item, i) => (
+                      <span key={item}>
+                        {i > 0 && ", "}
+                        <span className={styles.tStr}>"{item}"</span>
+                      </span>
+                    ))}
+                    ],{"\n"}
+                  </span>
+                ))}
+                {"  "}{"}"},{"\n"}
+                {"  "}based: <span className={styles.tStr}>"Jakarta, ID"</span>,{"\n"}
+                {"  "}availability: <span className={styles.tStr}>"Open for freelance work"</span>,{"\n"}
+                {"}"};
+              </code>
+            </pre>
+
             <div className={styles.codeMark}>
-              <span className={styles.codeInitials}>
-                {SEGMENTS.slice(0, count).join("")}
+              <span className={styles.codePrompt}>$</span>
+              {/* Fixed width (the full string, invisible) so the card never jitters while typing */}
+              <span className={styles.codeTyped} data-full={FULL_TEXT}>
+                <span>
+                  {SEGMENTS.slice(0, count).join("")}
+                  <span className={styles.codeCursor} />
+                </span>
               </span>
-              <span className={styles.codeCursor} aria-hidden="true">|</span>
             </div>
           </div>
         </div>

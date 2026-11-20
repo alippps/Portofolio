@@ -13,79 +13,84 @@ export default function Project() {
 
   return (
     <section id="project" className={styles.project}>
-      <div className="reveal">
-        <p className="section-label">Portfolio</p>
-        <h2 className="section-title">Featured Projects</h2>
-      </div>
+      <div className="container">
+        <div className="section-head reveal">
+          <p className="section-label">Portfolio</p>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-lead">Selected work, from landing pages and dashboards to full-stack apps.</p>
+        </div>
 
-      <div className={styles.projectsGrid}>
-        {projects.map((project, index) => (
-          <article
-            key={project.title}
-            className={`${styles.projCard} reveal`}
-            style={{ transitionDelay: `${index * 0.08}s` }}
-          >
-            <div className={`${styles.projectPreview} ${styles[project.preview]}`}>
-              <div className={styles.previewChrome}>
-                <span />
-                <span />
-                <span />
-              </div>
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={`${project.title} preview`}
-                  className={styles.cardPreviewImage}
-                  width={project.imageWidth}
-                  height={project.imageHeight}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <div className={styles.previewBody}>
-                  <div className={styles.previewPanel}>
-                    <strong>{project.title}</strong>
-                    <small>{project.subtitle}</small>
-                  </div>
-                  <div className={styles.previewBars}>
-                    <span />
-                    <span />
-                    <span />
-                  </div>
+        <div className={styles.projectsGrid}>
+          {projects.map((project, index) => (
+            <article
+              key={project.title}
+              className={`${styles.projCard} reveal`}
+              style={{ transitionDelay: `${index * 0.08}s` }}
+            >
+              <div className={`${styles.projectPreview} ${styles[project.preview]}`}>
+                <div className={styles.previewChrome}>
+                  <span />
+                  <span />
+                  <span />
                 </div>
-              )}
-            </div>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className={styles.cardPreviewImage}
+                    width={project.imageWidth}
+                    height={project.imageHeight}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className={styles.previewBody}>
+                    <div className={styles.previewPanel}>
+                      <strong>{project.title}</strong>
+                      <small>{project.subtitle}</small>
+                    </div>
+                    <div className={styles.previewBars}>
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                  </div>
+                )}
+              </div>
 
-            <div className={styles.cardTop}>
-              <div className={styles.projIcon}>{project.icon}</div>
-              <span className={styles.projSubtitle}>{project.subtitle}</span>
-            </div>
+              <div className={styles.cardBody}>
+                <div className={styles.cardTop}>
+                  <div className={styles.projIcon}>{project.icon}</div>
+                  <span className={styles.projSubtitle}>{project.subtitle}</span>
+                </div>
 
-            <h3 className={styles.projTitle}>{project.title}</h3>
-            <p className={styles.projDesc}>{project.desc}</p>
-            <p className={styles.projImpact}>{project.impact}</p>
+                <h3 className={styles.projTitle}>{project.title}</h3>
+                <p className={styles.projDesc}>{project.desc}</p>
+                <p className={styles.projImpact}>{project.impact}</p>
 
-            <div className={styles.projTags}>
-              {project.tags.map((tag) => (
-                <span key={tag} className={styles.projTag}>{tag}</span>
-              ))}
-            </div>
+                <div className={styles.projTags}>
+                  {project.tags.map((tag) => (
+                    <span key={tag} className={styles.projTag}>{tag}</span>
+                  ))}
+                </div>
 
-            <div className={styles.projectActions}>
-              <button type="button" className={styles.detailBtn} onClick={() => setSelectedProject(project)}>
-                View Detail
-              </button>
-              {project.liveLink && (
-                <a href={project.liveLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live demo`}>
-                  <FaExternalLinkAlt />
-                </a>
-              )}
-              <a href={project.sourceLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} source`}>
-                <FaGithub />
-              </a>
-            </div>
-          </article>
-        ))}
+                <div className={styles.projectActions}>
+                  <button type="button" className={styles.detailBtn} onClick={() => setSelectedProject(project)}>
+                    View Detail
+                  </button>
+                  {project.liveLink && (
+                    <a href={project.liveLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live demo`}>
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                  <a href={project.sourceLink} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} source`}>
+                    <FaGithub />
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
 
       {selectedProject && (

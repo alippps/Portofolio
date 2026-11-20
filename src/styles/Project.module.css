@@ -2,18 +2,28 @@
   background: var(--bg);
 }
 
+/* Fixed column counts (3 / 2 / 1) instead of auto-fill, so every breakpoint
+   lands on a predictable grid. Flex-wrap + centring puts an incomplete last
+   row in the middle (5 cards = 3 + 2 centred) instead of leaving a hole on
+   the right. Cards in a row still share one height. */
 .projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
+  --grid-gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap);
 }
 
+/* Column layout + stretch = equal-height cards with actions pinned to the bottom */
 .projCard {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 calc((100% - 2 * var(--grid-gap)) / 3);
+  min-width: 0;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -40,13 +50,22 @@
 }
 
 .projectPreview {
-  min-height: 180px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   position: relative;
   margin-bottom: 1.2rem;
   background: #111118;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 0.25rem 0.25rem;
 }
 
 .landing {
@@ -85,9 +104,11 @@
     linear-gradient(160deg, #0e1712 0%, #152215 100%);
 }
 
+/* Same aspect ratio for screenshots and placeholders, so previews line up */
 .cardPreviewImage {
   width: 100%;
-  height: 146px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top;
   display: block;
@@ -100,6 +121,7 @@
 
 .previewChrome {
   height: 34px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -116,7 +138,7 @@
 }
 
 .previewBody {
-  min-height: 146px;
+  aspect-ratio: 16 / 9;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 1rem;
@@ -126,7 +148,7 @@
 
 .previewPanel {
   min-height: 96px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 1rem;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -175,7 +197,7 @@
 .projIcon {
   width: 46px;
   height: 46px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border);
   display: flex;
@@ -231,7 +253,8 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  margin-top: 1.4rem;
+  margin-top: auto;
+  padding-top: 1.4rem;
 }
 
 .projectActions a,
@@ -240,7 +263,7 @@
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   min-width: 40px;
   height: 40px;
   display: inline-flex;
@@ -285,7 +308,7 @@
   position: relative;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: 1.2rem;
   box-shadow: 0 32px 90px rgba(0, 0, 0, 0.45);
 }
@@ -298,7 +321,7 @@
 }
 
 .modalPreview {
-  min-height: 260px;
+  margin-bottom: 1.5rem;
 }
 
 .modalTitle {
@@ -360,11 +383,19 @@
   display: block;
 }
 
-@media (max-width: 768px) {
-  .projectsGrid {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  .projCard {
+    flex-basis: calc((100% - var(--grid-gap)) / 2);
   }
+}
 
+@media (max-width: 640px) {
+  .projCard {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
   .previewBody,
   .detailGrid {
     grid-template-columns: 1fr;

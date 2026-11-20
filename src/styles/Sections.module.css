@@ -3,28 +3,24 @@
   background: var(--bg2);
 }
 
-.certSubtitle {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-top: -0.5rem;
-  margin-bottom: 0;
-  max-width: 480px;
-}
-
+/* Same pattern as the project grid: fixed 3 / 2 / 1 columns, and an incomplete
+   last row is centred (5 certificates = 3 + 2) instead of leaving a hole. */
 .certGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.2rem;
-  margin-top: 2.5rem;
+  --grid-gap: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap);
 }
 
 .certCard {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.4rem 1.6rem;
+  border-radius: var(--radius);
+  padding: 1.4rem;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  flex: 0 1 calc((100% - 2 * var(--grid-gap)) / 3);
+  min-width: 0;
   display: flex;
   gap: 1rem;
   align-items: flex-start;
@@ -76,10 +72,24 @@
   opacity: 1;
 }
 
+/* Text column fills the card so the date always sits on the bottom edge */
+.certText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.certText .certDate {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
 .certIcon {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -89,7 +99,21 @@
   transition: background 0.3s, border-color 0.3s;
 }
 
-.certCard:hover .certIcon {
+.certCard:hover /* Text column fills the card so the date always sits on the bottom edge */
+.certText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.certText .certDate {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.certIcon {
   background: rgba(249, 115, 22, 0.1);
   border-color: rgba(249, 115, 22, 0.25);
 }
@@ -106,7 +130,7 @@
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 500;
-  margin-bottom: 0.3rem;
+  line-height: 1.45;
 }
 
 .certDate {
@@ -123,30 +147,71 @@
   background-image: radial-gradient(ellipse 60% 50% at 50% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 70%);
 }
 
+/* Both columns start on the same line under the shared header and end on the
+   same line too: the left column defines the row height, the guestbook fills it. */
 .contactLayout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: stretch;
+}
+
+.contactLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .contactRight {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.contactDesc {
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 0;
+  /* Its own content does not stretch the row; it takes the row's height */
+  contain: size;
+  min-height: 320px;
 }
 
 .contactList {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.8rem;
-  margin-top: 2.2rem;
+}
+
+.contactSubLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: -0.6rem;
+}
+
+.socialList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 60px;
+  padding: 0.7rem 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.socialLink:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(249, 115, 22, 0.3);
+  transform: translateY(-2px);
 }
 
 .contactLink {
@@ -154,9 +219,9 @@
   grid-template-columns: 38px 1fr;
   align-items: center;
   gap: 0.85rem;
-  min-height: 68px;
-  padding: 0.8rem;
-  border-radius: 8px;
+  min-height: 76px;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.025);
   color: var(--muted);
@@ -167,7 +232,8 @@
 .contactIcon {
   width: 38px;
   height: 38px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -203,8 +269,12 @@
 .inbox {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   overflow: hidden;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .inboxHeader {
@@ -231,7 +301,8 @@
 
 .inboxBody {
   padding: 0.75rem;
-  max-height: 220px;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -254,7 +325,7 @@
 .msgBubble {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 0.6rem 0.8rem;
   animation: bubbleIn 0.25s ease;
 }
@@ -301,7 +372,7 @@
 .msgInput {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 0.6rem 0.9rem;
   color: var(--text);
   font-size: 0.83rem;
@@ -321,7 +392,7 @@
   width: 100%;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 0.65rem 2.8rem 0.65rem 0.9rem;
   color: var(--text);
   font-size: 0.83rem;
@@ -376,15 +447,48 @@
   margin: 0;
 }
 
+@media (max-width: 1024px) {
+  .certCard {
+    flex-basis: calc((100% - var(--grid-gap)) / 2);
+  }
+}
+
 @media (max-width: 900px) {
   .contactLayout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  /* Stacked: back to normal flow with a capped message list */
+  .contactRight {
+    contain: none;
+    min-height: 0;
+  }
+
+  .inboxBody {
+    flex: none;
+    max-height: 260px;
+  }
+
+  .contactList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 640px) {
+  .certCard {
+    flex-basis: 100%;
+  }
+
   .contactList {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .socialLink {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 84px;
+    font-size: 0.8rem;
   }
 }

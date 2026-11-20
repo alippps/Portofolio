@@ -1,11 +1,36 @@
 .footer {
-  text-align: center;
-  padding: 2rem;
+  padding: 1.75rem var(--gutter);
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.82rem;
 }
 
+/* Same container as the sections, so the footer edges line up with the content */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .footer span {
   color: var(--accent);
+}
+
+.toTop {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.toTop:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .inner {
+    justify-content: center;
+    text-align: center;
+  }
 }
