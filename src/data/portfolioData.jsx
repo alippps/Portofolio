@@ -150,8 +150,8 @@ export const certificates = [
   },
   {
     icon: <PiCertificate size={25} color="#efdecd" />,
-    title: "Certificate of Competence",
-    issuer: "Universitas Amikom Yogyakarta",
+    title: "Computer Competency Test",
+    issuer: "Universitas Amikom Yogyakarta, taken during vocational school",
     date: "Feb 2024",
     credentialUrl: "",
   },

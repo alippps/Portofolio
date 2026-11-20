@@ -82,7 +82,7 @@ export default function Home() {
               <code>
                 <span className={styles.tKey}>const</span> dev = {"{"}{"\n"}
                 {"  "}name: <span className={styles.tStr}>"Alif Farhan"</span>,{"\n"}
-                {"  "}role: <span className={styles.tStr}>"Frontend Developer"</span>,{"\n"}
+                {"  "}role: <span className={styles.tStr}>"Software Developer"</span>,{"\n"}
                 {"  "}stack: {"{"}{"\n"}
                 {STACK.map(([layer, items]) => (
                   <span key={layer}>
