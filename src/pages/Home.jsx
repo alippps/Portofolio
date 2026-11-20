@@ -40,7 +40,7 @@ export default function Home() {
     <section id="home" className={styles.home}>
       <div className={`container ${styles.homeGrid}`}>
         <div className={styles.homeCopy}>
-          <p className={styles.homeRole}>Frontend Developer · Software Engineer</p>
+          <p className={styles.homeRole}>Software Developer</p>
           <p className={styles.homeGreeting}>
             <span aria-hidden="true">👋</span> Hi, I&apos;m
           </p>

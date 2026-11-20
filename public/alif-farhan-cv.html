@@ -98,6 +98,15 @@
         font-size: 14px;
       }
 
+      .school {
+        font-weight: 400;
+        color: #374151;
+      }
+
+      .certs {
+        margin-top: 8px;
+      }
+
       .meta {
         color: #4b5563;
         font-size: 13px;
@@ -159,7 +168,7 @@
     <main>
       <header>
         <h1>ALIF FARHAN</h1>
-        <p class="role">Frontend Developer | Software Engineer</p>
+        <p class="role">Software Developer</p>
         <p class="contact">
           <span>Jakarta, Indonesia</span>
           <span><a href="mailto:aliffaehan111@gmail.com">aliffaehan111@gmail.com</a></span>
@@ -169,14 +178,6 @@
         </p>
       </header>
 
-      <h2>Professional Summary</h2>
-      <p>
-        Frontend Developer with 2+ years of experience building enterprise web applications using Angular,
-        TypeScript, JavaScript, PHP, and PostgreSQL. Experienced in developing internal business systems,
-        integrating REST APIs, creating reports with BIRT, and optimizing SQL queries. Focused on clean,
-        maintainable code and on improving application performance and user experience.
-      </p>
-
       <h2>Professional Experience</h2>
       <div class="entry">
         <div class="entry-head">
@@ -185,95 +186,81 @@
         </div>
         <p class="sub">PT Rofasys Mitra Prima · Jakarta</p>
         <ul>
-          <li>Developed and maintained enterprise web applications using Angular and TypeScript.</li>
-          <li>Built responsive user interfaces based on business requirements.</li>
-          <li>Integrated frontend applications with REST APIs.</li>
-          <li>Wrote and optimized PostgreSQL queries for reporting and operational features.</li>
-          <li>Developed and maintained BIRT reports for internal business processes.</li>
-          <li>Fixed production issues and collaborated with backend developers and QA teams.</li>
-          <li>Troubleshot Kubernetes and Tomcat deployments, including missing environment variables and resource quota errors.</li>
-          <li>Participated in feature implementation, debugging, and system enhancements.</li>
+          <li>Build and maintain enterprise web applications with Angular and TypeScript from business requirements.</li>
+          <li>Integrate REST APIs and write optimized PostgreSQL queries for reporting and operations.</li>
+          <li>Develop BIRT reports for internal processes and fix production issues with backend and QA teams.</li>
+          <li>Troubleshoot Kubernetes and Tomcat deployments (missing env vars, resource quota errors).</li>
         </ul>
       </div>
 
       <h2>Technical Skills</h2>
       <dl class="skills">
-        <dt>Languages</dt>
-        <dd>JavaScript, TypeScript, PHP, SQL, Go</dd>
+        <dt>Programming</dt>
+        <dd>TypeScript, JavaScript, SQL, PHP</dd>
         <dt>Frontend</dt>
-        <dd>Angular, React, HTML5, CSS3, Bootstrap, Tailwind CSS</dd>
+        <dd>Angular, React, HTML5, CSS3, Tailwind CSS, Bootstrap</dd>
         <dt>Backend</dt>
-        <dd>Go, Laravel, CodeIgniter, REST API</dd>
-        <dt>Database</dt>
-        <dd>PostgreSQL, MySQL</dd>
-        <dt>Reporting</dt>
-        <dd>BIRT</dd>
-        <dt>Tools</dt>
-        <dd>Git, GitHub, Docker, Kubernetes, Tomcat, DBeaver, Postman, VS Code</dd>
+        <dd>Go, Node.js, Express, Laravel, CodeIgniter, REST API</dd>
+        <dt>Data &amp; Reporting</dt>
+        <dd>PostgreSQL, MySQL, BIRT</dd>
+        <dt>DevOps &amp; Tools</dt>
+        <dd>Docker, Kubernetes, Tomcat, Git, GitHub, Postman, DBeaver</dd>
+        <dt>Spoken</dt>
+        <dd>Indonesian (native), English (professional working proficiency)</dd>
       </dl>
 
       <h2>Projects</h2>
       <div class="entry">
         <div class="entry-head">
-          <h3>Marketplace Web Application</h3>
-          <span class="meta">Laravel · React · PostgreSQL</span>
+          <h3>To Do POS · <a href="https://to-do-pos.vercel.app">to-do-pos.vercel.app</a></h3>
+          <span class="meta">Next.js · Supabase · PostgreSQL</span>
         </div>
+        <p class="sub">Lead developer (team of 2) · 1st Place, UMKM Goes Digital, Universitas Atma Jaya Yogyakarta, Aug 2026</p>
         <ul>
-          <li>Built a marketplace application with authentication, shopping cart, product management, and order management.</li>
-          <li>Designed the relational database schema and implemented REST APIs.</li>
-          <li>Developed a responsive frontend using React.</li>
+          <li>Multi-tenant QR ordering for F&amp;B businesses; orders reach the cashier screen in real time.</li>
+          <li>Isolated each outlet's data with PostgreSQL Row Level Security, enforced at the database.</li>
+          <li>Built the order flow (pending → paid), self-service onboarding, and Playwright E2E tests.</li>
         </ul>
       </div>
       <div class="entry">
         <div class="entry-head">
-          <h3>Portfolio Website</h3>
-          <span class="meta">React · Vite · Supabase</span>
+          <h3>FinanceOS · <a href="https://finance-app-v2-wine.vercel.app">finance-app-v2-wine.vercel.app</a></h3>
+          <span class="meta">TypeScript · CSS</span>
         </div>
         <ul>
-          <li>Designed and developed a personal portfolio website with project case studies and a realtime guestbook.</li>
-          <li>Implemented responsive layouts and optimized performance.</li>
-          <li>Deployed the application for public access at alffar.vercel.app.</li>
+          <li>Personal finance dashboard for tracking income, expenses, budget, and account balance, with user login.</li>
+          <li>Redesigned the v1 layout into a structured dashboard while adding authentication.</li>
         </ul>
       </div>
       <div class="entry">
         <div class="entry-head">
-          <h3>MBTI Personality Web Application</h3>
-          <span class="meta">React · Flask</span>
+          <h3>WhatsApp Clone · <a href="https://github.com/alippps/WhatsappClone">github.com/alippps/WhatsappClone</a></h3>
+          <span class="meta">React · Node.js · Socket.io</span>
         </div>
         <ul>
-          <li>Built a web application for MBTI personality prediction.</li>
-          <li>Connected the frontend with the backend using REST APIs.</li>
-          <li>Implemented form validation and API integration.</li>
+          <li>Real-time chat app with multiple rooms, online/offline status, and persistent message history.</li>
+          <li>Kept WebSocket state in sync across clients and handled disconnects without message loss.</li>
         </ul>
       </div>
 
-      <h2>Education</h2>
+      <h2>Education &amp; Certifications</h2>
       <div class="entry">
         <div class="entry-head">
-          <h3>Bachelor's Degree in Information Systems (in progress)</h3>
+          <h3>Information Systems (Bachelor's, in progress) <span class="school">· Universitas Bina Sarana Informatika</span></h3>
           <span class="meta">Expected 2029</span>
         </div>
-        <p class="sub">Universitas Bina Sarana Informatika</p>
       </div>
       <div class="entry">
         <div class="entry-head">
-          <h3>Vocational High School (SMK), Software Engineering (RPL)</h3>
+          <h3>Software Engineering (SMK, RPL) <span class="school">· SMKS Prestasi Prima Jakarta</span></h3>
           <span class="meta">Graduated Jun 2024</span>
         </div>
-        <p class="sub">SMKS Prestasi Prima Jakarta</p>
       </div>
-
-      <h2>Awards &amp; Certifications</h2>
-      <ul>
-        <li><strong>1st Place, Innovation &amp; Development Competition</strong> (theme: UMKM), Universitas Atma Jaya Yogyakarta, Aug 2026</li>
-        <li><strong>Colloquium</strong>, Career Exploration 2026 x Coding Studio, Jun 2026</li>
+      <ul class="certs">
         <li><strong>Angular Course</strong>, course completion certificate, Mar 2025</li>
         <li><strong>Lembaga Sertifikasi Profesi (LSP)</strong>, National Professional Certification Agency, Jun 2024</li>
-        <li><strong>Computer Competency Test</strong>, Universitas Amikom Yogyakarta (vocational school), Feb 2024</li>
+        <li><strong>Computer Competency Test</strong>, Universitas Amikom Yogyakarta, Feb 2024</li>
       </ul>
-
-      <h2>Languages</h2>
-      <p>Indonesian (Native) · English (Professional Working Proficiency)</p>
     </main>
   </body>
 </html>
