@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
+import HeroScene from "../components/HeroScene";
 
 const SEGMENTS = ["< ", "A", "L", "F", "F", "A", "R", " >"];
 const FULL_TEXT = SEGMENTS.join("");
@@ -38,6 +39,8 @@ export default function Home() {
 
   return (
     <section id="home" className={styles.home}>
+      <HeroScene />
+
       <div className={`container ${styles.homeGrid}`}>
         <div className={styles.homeCopy}>
           <p className={styles.homeRole}>Software Developer</p>

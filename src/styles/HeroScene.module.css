@@ -1,0 +1,38 @@
+/* Full-bleed layer behind the hero content */
+.scene {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Lower half only: the field reads as a floor under the content, never behind the copy */
+  top: 46%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 28%, #000 55%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 28%, #000 55%);
+}
+
+.scene[data-ready="true"] {
+  opacity: 1;
+}
+
+.scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Stacked layouts are shorter: start the field lower so it stays under the buttons */
+@media (max-width: 900px) {
+  .scene {
+    top: 60%;
+  }
+}
+
+@media (max-width: 640px) {
+  .scene {
+    top: 68%;
+  }
+}

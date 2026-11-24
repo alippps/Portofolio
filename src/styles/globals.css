@@ -135,7 +135,10 @@ section {
 }
 
 .btn-outline {
-  background: transparent;
+  /* Slightly opaque so it stays legible over the hero's 3D background */
+  background: rgba(7, 7, 11, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--border);
   color: var(--muted);
 }
